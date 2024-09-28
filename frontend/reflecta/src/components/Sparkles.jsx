@@ -1,8 +1,6 @@
-"use client"
-
-import { useEffect, useId, useState } from "react"
-import Particles, { initParticlesEngine } from "@tsparticles/react"
-import { loadSlim } from "@tsparticles/slim"
+import { useEffect, useId, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 
 export function Sparkles({
   className,
@@ -18,17 +16,17 @@ export function Sparkles({
   background = "#56368d",
   options = {},
 }) {
-  const [isReady, setIsReady] = useState(false)
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine)
+      await loadSlim(engine);
     }).then(() => {
-      setIsReady(true)
-    })
-  }, [])
+      setIsReady(true);
+    });
+  }, []);
 
-  const id = useId()
+  const id = useId();
 
   const defaultOptions = {
     background: {
@@ -76,7 +74,15 @@ export function Sparkles({
       },
     },
     detectRetina: true,
-  }
+  };
 
-  return isReady && <Particles id={id} options={{ ...defaultOptions, ...options }} className={className} />
+  return (
+    isReady && (
+      <Particles
+        id={id}
+        options={{ ...defaultOptions, ...options }}
+        className={className}
+      />
+    )
+  );
 }
