@@ -16,16 +16,11 @@ export default function Hero() {
           </span>
         </div>
 
-        <div className='mt-14 grid grid-cols-2'>
+        <div className='mt-14 flex flex-row justify-center'>
           <img
             className='col-span-1 size-40'
             alt='Logo de la NASA'
             src='../../public/logos/nasa.png'
-          />
-          <img
-            className='col-span-1 size-40'
-            alt='Logo de la NASA'
-            src='../../public/logos/python.png'
           />
         </div>
       </div>
