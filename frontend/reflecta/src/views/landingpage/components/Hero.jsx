@@ -20,7 +20,7 @@ export default function Hero() {
           <img
             className='col-span-1 size-40'
             alt='Logo de la NASA'
-            src='../../public/logos/nasa.png'
+            src='/logos/nasa.png'
           />
         </div>
       </div>
