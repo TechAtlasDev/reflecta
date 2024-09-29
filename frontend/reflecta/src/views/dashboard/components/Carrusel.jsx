@@ -8,9 +8,7 @@ import {
 
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -107,7 +105,7 @@ export default function Carrusel() {
               key={banda.code}
             >
               <Card
-                className={`h-80 bg-gradient-to-b from-transparent via-transparent ${banda.color} flex flex-col justify-end`}
+                className={`min-h-80 bg-gradient-to-b from-transparent via-transparent ${banda.color} flex flex-col justify-end`}
               >
                 <CardHeader>
                   <CardTitle className='text-white text-2xl font-bold'>
