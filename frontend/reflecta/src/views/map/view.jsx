@@ -6,8 +6,25 @@ import {
   Popup,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import L, { marker } from "leaflet"; // Importa Leaflet para crear el icono personalizado
 import Interfaz from "./interfaz";
+import GetCordinates from "./functions/locationLandsat";
+
+// Define el icono personalizado
+const landsatIcon = L.icon({
+  iconUrl: "/icons/landsat.png", // Cambia esta ruta a la imagen que desees
+  iconSize: [32, 32], // Tamaño del icono en píxeles
+  iconAnchor: [16, 32], // El punto de anclaje del icono (base del icono)
+  popupAnchor: [0, -32], // El punto de anclaje para los popups
+});
+
+const markerIcon = L.icon({
+  iconUrl: "/icons/marker.png", // Cambia esta ruta a la imagen que desees
+  iconSize: [32, 32], // Tamaño del icono en píxeles
+  iconAnchor: [16, 32], // El punto de anclaje del icono (base del icono)
+  popupAnchor: [0, -32], // El punto de anclaje para los popups
+});
 
 function HandlerMap() {
   const [clickedPosition, setClickedPosition] = useState(null);
@@ -22,12 +39,47 @@ function HandlerMap() {
   return clickedPosition === null ? null : (
     // Si hay una posición de clic, muestra un marcador
     <Marker position={clickedPosition}>
-      <Popup>a</Popup>
+      <Popup>Aquí estás</Popup>
     </Marker>
   );
 }
 
 function Map() {
+  const [landsatCoordinates, setLandsatCoordinates] = useState(null); // Inicialmente null
+  const [userCoordinates, setUserCoordinates] = useState(null);
+
+  // Función para obtener las coordenadas del usuario
+  function getUserLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserCoordinates({ latitude, longitude });
+        },
+        (error) => {
+          console.error("Error getting user location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }
+
+  async function DrawLandsat() {
+    try {
+      const response = await GetCordinates();
+      setLandsatCoordinates(response);
+    } catch (error) {
+      console.error("Error fetching coordinates:", error);
+    }
+  }
+
+  useEffect(() => {
+    DrawLandsat();
+
+    getUserLocation(); // Obtener la ubicación del usuario
+  }, []); // Ejecutar solo una vez al montar el componente
+
   return (
     <main className='relative w-screen h-screen overflow-hidden'>
       {/* Mapa */}
@@ -42,6 +94,35 @@ function Map() {
           attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
         />
         <HandlerMap />
+
+        {landsatCoordinates && (
+          <Marker
+            alt='Landsat9'
+            icon={landsatIcon}
+            position={[
+              landsatCoordinates.latitude,
+              landsatCoordinates.longitude,
+            ]}
+          >
+            <Popup>
+              <b>¡El Landsat 9 se encuentra aquí!</b>
+              <br></br> Coordenadas: {landsatCoordinates.latitude},{" "}
+              {landsatCoordinates.longitude}
+            </Popup>
+          </Marker>
+        )}
+
+        {userCoordinates && (
+          <Marker
+            position={[userCoordinates.latitude, userCoordinates.longitude]}
+            icon={markerIcon} // Usa el icono personalizado para la ubicación del usuario
+          >
+            <Popup>
+              Tu ubicación: {userCoordinates.latitude},{" "}
+              {userCoordinates.longitude}
+            </Popup>
+          </Marker>
+        )}
       </MapContainer>
 
       {/* Sección de la interfaz */}
