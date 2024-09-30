@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-g=-)z&0_=&el&b5-t#xky57nc9gs*-3&%9(c@(bp#&j9%ap$hn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [".vercel.app"]
 
 
 # Application definition
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'reflecta.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["api/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
