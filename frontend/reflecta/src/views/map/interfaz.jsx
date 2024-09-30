@@ -2,9 +2,10 @@ import { useState } from "react";
 
 export default function Interfaz() {
   const [decoracion, setDecoracion] = useState(true);
+  const [nubes, setNubes] = useState(40);
 
   return (
-    <div className='relative bg-transparent flex flex-col items-start justify-between px-5 h-screen pb-10 xl:py-5'>
+    <div className='relative bg-transparent flex flex-col items-start justify-between px-5 h-screen py-10 xl:py-5'>
       {decoracion ? (
         <>
           <div className='absolute inset-0 bg-gradient-to-t xl:bg-gradient-to-l from-indigo-950 via-30% xl:via-20% via-transparent rounded-lg pointer-events-none z-0'></div>
@@ -20,7 +21,7 @@ export default function Interfaz() {
         <h1 className='font-bold text-2xl  font-mono'>Reflecta</h1>
         <hr className='border w-1/2' />
         <div className='flex flex-col gap-2'>
-          <article className='flex flex-row items-center gap-2'>
+          <article className='flex flex-row items-center justify-between gap-2'>
             <span>
               <strong>Decoraciones</strong>
             </span>
@@ -31,6 +32,22 @@ export default function Interfaz() {
               onChange={() => {
                 setDecoracion(!decoracion);
               }}
+            />
+          </article>
+          <article className='flex flex-row items-center justify-between gap-2'>
+            <span>
+              <strong>Nubes</strong>
+            </span>
+            <input
+              type='range'
+              min='0'
+              max='100'
+              value={nubes}
+              onChange={(e) => {
+                setNubes(e.target.value);
+              }}
+              step='1'
+              class='range range-success range-xs'
             />
           </article>
         </div>
