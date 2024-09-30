@@ -19,7 +19,7 @@ class ApiConfig(AppConfig):
                 raise ValueError("Se requiere la variable de entorno 'SERVICE_ACCOUNT' y 'GOOGLE_CREDENTIALS_JSON'")
 
             # Decodificar el JSON de las credenciales desde Base64
-            credentials_json = base64.b64decode(credentials_base64).decode('utf-8')
+            credentials_json = base64.b64decode(credentials_base64.encode()).decode('utf-8')
             credentials_dict = json.loads(credentials_json)
             
             # Crear las credenciales de servicio
