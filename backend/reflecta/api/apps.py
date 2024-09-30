@@ -23,19 +23,19 @@ class ApiConfig(AppConfig):
             client_cert_url = os.environ.get('CLIENT_CERT_URL', 'https://www.googleapis.com/robot/v1/metadata/x509/default_client_email')
 
             # Crear las credenciales de servicio
-            credentials = ee.ServiceAccountCredentials(service_account, key_data={
+            credentials = ee.ServiceAccountCredentials(service_account, key_data=json.dumps({
                 "type": "service_account",
-                "project_id": project_id,
-                "private_key_id": private_key_id,
-                "private_key": private_key,
-                "client_email": client_email,
-                "client_id": client_id,
-                "auth_uri": auth_uri,
-                "token_uri": token_uri,
-                "auth_provider_x509_cert_url": auth_provider_cert_url,
-                "client_x509_cert_url": client_cert_url,
+                "project_id": project_id.encode(),
+                "private_key_id": private_key_id.encode(),
+                "private_key": private_key.encode(),
+                "client_email": client_email.encode(),
+                "client_id": client_id.encode(),
+                "auth_uri": auth_uri.encode(),
+                "token_uri": token_uri.encode(),
+                "auth_provider_x509_cert_url": auth_provider_cert_url.encode(),
+                "client_x509_cert_url": client_cert_url.encode(),
                 "universe_domain": "googleapis.com"
-            })
+            }))
 
             # Inicializar Earth Engine
             ee.Initialize(credentials)
