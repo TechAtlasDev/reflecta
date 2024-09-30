@@ -12,6 +12,7 @@ class ApiConfig(AppConfig):
         try:
             service_account = os.environ.get('SERVICE_ACCOUNT')
             credentials_json = os.environ.get('GOOGLE_CREDENTIALS_JSON')
+            print (credentials_json)
 
             if not service_account or not credentials_json:
                 raise ValueError("Se requiere la variable de entorno 'service_account' y 'GOOGLE_CREDENTIALS_JSON'")
