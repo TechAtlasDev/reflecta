@@ -24,7 +24,7 @@ jsonfield==3.1.0
 libsql-experimental==0.0.40
 proto-plus==1.24.0
 protobuf==5.28.2
-psycopg2==2.9.9
+psycopg2-binary==2.9.9
 pyasn1==0.6.1
 pyasn1_modules==0.4.1
 PyJWT==2.9.0
