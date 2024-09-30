@@ -17,10 +17,7 @@ class ApiConfig(AppConfig):
             if not service_account or not credentials_json:
                 raise ValueError("Se requiere la variable de entorno 'SERVICE_ACCOUNT' y 'GOOGLE_CREDENTIALS_JSON'")
 
-            # Cargar el JSON
             credentials_dict = json.loads(credentials_json)
-
-            # Crear credenciales usando el diccionario actualizado
             credentials = ee.ServiceAccountCredentials(service_account, key_data=json.dumps(credentials_dict))
 
             # Inicializar Earth Engine
