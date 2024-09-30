@@ -1,6 +1,7 @@
 import os
 import ee
 import json
+import base64
 from django.apps import AppConfig
 
 class ApiConfig(AppConfig):
@@ -12,12 +13,16 @@ class ApiConfig(AppConfig):
         try:
             # Cargar las variables de entorno
             service_account = os.environ.get('SERVICE_ACCOUNT')
-            credentials_json = os.environ.get('GOOGLE_CREDENTIALS_JSON')
+            credentials_base64 = os.environ.get('GOOGLE_CREDENTIALS_JSON')
 
-            if not service_account or not credentials_json:
+            if not service_account or not credentials_base64:
                 raise ValueError("Se requiere la variable de entorno 'SERVICE_ACCOUNT' y 'GOOGLE_CREDENTIALS_JSON'")
 
+            # Decodificar el JSON de las credenciales desde Base64
+            credentials_json = base64.b64decode(credentials_base64).decode('utf-8')
             credentials_dict = json.loads(credentials_json)
+            
+            # Crear las credenciales de servicio
             credentials = ee.ServiceAccountCredentials(service_account, key_data=json.dumps(credentials_dict))
 
             # Inicializar Earth Engine
