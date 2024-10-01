@@ -10,7 +10,7 @@ class ApiConfig(AppConfig):
     def ready(self):
         # Inicializar Google Earth Engine (EE)
         try:
-            # Cargar las variables de entorno con valores por defecto
+            # Cargar las variables de entorno
             service_account = os.environ.get('SERVICE_ACCOUNT', 'default_service_account')
             project_id = os.environ.get('PROJECT_ID', 'reflecta-techatlasdev')
             private_key_id = os.environ.get('PRIVATE_KEY_ID', 'default_private_key_id')
@@ -22,22 +22,23 @@ class ApiConfig(AppConfig):
             auth_provider_cert_url = os.environ.get('AUTH_PROVIDER_CERT_URL', 'https://www.googleapis.com/oauth2/v1/certs')
             client_cert_url = os.environ.get('CLIENT_CERT_URL', 'https://www.googleapis.com/robot/v1/metadata/x509/default_client_email')
 
-            DATAJSON = json.dumps({
+            # Crear el JSON de las credenciales
+            service_account_info = {
                 "type": "service_account",
-                "project_id": project_id.encode(),
-                "private_key_id": private_key_id.encode(),
-                "private_key": private_key.encode(),
-                "client_email": client_email.encode(),
-                "client_id": client_id.encode(),
-                "auth_uri": auth_uri.encode(),
-                "token_uri": token_uri.encode(),
-                "auth_provider_x509_cert_url": auth_provider_cert_url.encode(),
-                "client_x509_cert_url": client_cert_url.encode(),
+                "project_id": project_id,
+                "private_key_id": private_key_id,
+                "private_key": private_key,
+                "client_email": client_email,
+                "client_id": client_id,
+                "auth_uri": auth_uri,
+                "token_uri": token_uri,
+                "auth_provider_x509_cert_url": auth_provider_cert_url,
+                "client_x509_cert_url": client_cert_url,
                 "universe_domain": "googleapis.com"
-            })
+            }
 
             # Crear las credenciales de servicio
-            credentials = ee.ServiceAccountCredentials(service_account, key_data=DATAJSON)
+            credentials = ee.ServiceAccountCredentials(service_account_info['client_email'], service_account_info['private_key'])
 
             # Inicializar Earth Engine
             ee.Initialize(credentials)
