@@ -59,6 +59,12 @@ function HandlerMap() {
         >
           Notificar cuando Landsat pase aquí
         </button>
+        <button
+          className='btn btn-xs btn-outline btn-primary'
+          onClick={() => alert("Botón presionado")}
+        >
+          Mostrar metadatos
+        </button>
       </Popup>
     </Marker>
   );

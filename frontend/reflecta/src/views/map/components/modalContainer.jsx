@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import RangeData from "./rangedata";
+
 import {
   Carousel,
   CarouselContent,
@@ -143,6 +145,7 @@ export default function Content() {
         />
         <span>{nubes}%</span>
       </article>
+      <RangeData />
     </article>
   );
 }
