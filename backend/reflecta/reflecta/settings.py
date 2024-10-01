@@ -22,15 +22,14 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g=-)z&0_=&el&b5-t#xky57nc9gs*-3&%9(c@(bp#&j9%ap$hn'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-g=-)z&0_=&el&b5-t#xky57nc9gs*-3&%9(c@(bp#&j9%ap$hn')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", False)
+DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
 
 ALLOWED_HOSTS = [".vercel.app", "localhost"]
 
@@ -43,10 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "corsheaders",
-    'api',
+    'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
+    'users',
+    'landsat9'
 ]
 
 MIDDLEWARE = [
@@ -157,10 +157,3 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
-
-
-CORS_ALLOWED_ORIGINS = [
-  "http://localhost:4321",
-  "http://localhost:5173",
-  "https://reflecta-nasa.vercel.app"
-]

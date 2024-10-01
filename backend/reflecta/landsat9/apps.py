@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 class ApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'api'
+    name = 'landsat9'
 
     def ready(self):
         load_dotenv()

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import LandsatImage
+from .models import LandsatImage
 
 class LandsatImageSerializer(serializers.ModelSerializer):
     class Meta:

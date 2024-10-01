@@ -3,8 +3,8 @@ from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from ..models import LandsatImage
-from ..serializersdir.LandsatSerializer import *
+from .models import LandsatImage
+from .serializers import *
 import ee
 from rest_framework.pagination import PageNumberPagination
 from datetime import datetime, timedelta
