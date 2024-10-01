@@ -1,8 +1,8 @@
 import { useState } from "react";
+import ModalCarrousel from "./components/modal";
 
 export default function Interfaz() {
   const [decoracion, setDecoracion] = useState(true);
-  const [nubes, setNubes] = useState(40);
 
   return (
     <div className='relative bg-transparent flex flex-col items-start justify-between px-5 h-screen py-10 xl:py-5'>
@@ -15,43 +15,31 @@ export default function Interfaz() {
         <></>
       )}
 
-      {/* Sección principal con contenido interactivo */}
-      <section className='relative pointer-events-auto bg-slate-900 flex flex-col items-start gap-3 px-3 py-5 rounded-xl z-10'>
-        <span className='absolute text-[blue] loading loading-ring loading-lg -right-4 -top-4'></span>
-        <h1 className='font-bold text-2xl  font-mono'>Reflecta</h1>
-        <hr className='border w-1/2' />
-        <div className='flex flex-col gap-2'>
-          <article className='flex flex-row items-center justify-between gap-2'>
-            <span>
-              <strong>Decoraciones</strong>
-            </span>
-            <input
-              type='checkbox'
-              className=' toggle toggle-sm toggle-success'
-              checked={decoracion} // Vincula el estado con el valor del checkbox
-              onChange={() => {
-                setDecoracion(!decoracion);
-              }}
-            />
-          </article>
-          <article className='flex flex-row items-center justify-between gap-2'>
-            <span>
-              <strong>Nubes</strong>
-            </span>
-            <input
-              type='range'
-              min='0'
-              max='100'
-              value={nubes}
-              onChange={(e) => {
-                setNubes(e.target.value);
-              }}
-              step='1'
-              class='range range-success range-xs'
-            />
-          </article>
-        </div>
-      </section>
+      <div className='flex flex-row justify-between w-full'>
+        {/* Sección principal con contenido interactivo */}
+        <section className='relative pointer-events-auto bg-slate-900 flex flex-col items-start gap-3 px-3 py-5 rounded-xl z-10'>
+          <span className='absolute text-[blue] loading loading-ring loading-lg -right-4 -top-4'></span>
+          <h1 className='font-bold text-2xl  font-mono'>Reflecta</h1>
+          <hr className='border w-1/2' />
+          <div className='flex flex-col gap-2'>
+            <article className='flex flex-row items-center justify-between gap-2'>
+              <span>
+                <strong>Decoraciones</strong>
+              </span>
+              <input
+                type='checkbox'
+                className=' toggle toggle-sm toggle-success'
+                checked={decoracion} // Vincula el estado con el valor del checkbox
+                onChange={() => {
+                  setDecoracion(!decoracion);
+                }}
+              />
+            </article>
+          </div>
+        </section>
+
+        <ModalCarrousel />
+      </div>
 
       <section className='relative flex flex-row justify-between items-end gap-3 px-3 py-5 w-full z-10'>
         <div className='flex flex-col gap-2'>
