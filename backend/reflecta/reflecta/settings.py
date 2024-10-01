@@ -151,5 +151,6 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
   "http://localhost:4321",
-  "http://localhost:5173"
+  "http://localhost:5173",
+  "https://reflecta-nasa.vercel.app/"
 ]
