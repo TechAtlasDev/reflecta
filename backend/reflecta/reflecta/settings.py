@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+from datetime import timedelta
+
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +32,7 @@ SECRET_KEY = 'django-insecure-g=-)z&0_=&el&b5-t#xky57nc9gs*-3&%9(c@(bp#&j9%ap$hn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False)
 
-ALLOWED_HOSTS = [".vercel.app"]
-
+ALLOWED_HOSTS = [".vercel.app", "localhost"]
 
 # Application definition
 
@@ -149,8 +153,14 @@ REST_FRAMEWORK = {
     ),
 }
 
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+}
+
+
 CORS_ALLOWED_ORIGINS = [
   "http://localhost:4321",
   "http://localhost:5173",
-  "https://reflecta-nasa.vercel.app/"
+  "https://reflecta-nasa.vercel.app"
 ]

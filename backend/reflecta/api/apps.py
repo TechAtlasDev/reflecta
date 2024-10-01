@@ -2,12 +2,14 @@ import os
 import ee
 import json
 from django.apps import AppConfig
+from dotenv import load_dotenv
 
 class ApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'api'
 
     def ready(self):
+        load_dotenv()
         # Inicializar Google Earth Engine (EE)
         try:
             # Cargar las variables de entorno con valores por defecto
