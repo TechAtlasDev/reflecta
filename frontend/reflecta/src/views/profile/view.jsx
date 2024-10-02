@@ -1,7 +1,13 @@
+import Navbar from "../dashboard/components/navbar";
+import Panel from "./components/panel";
+
 export default function ProfilePage() {
   return (
-    <div>
-      <h1>Perfil</h1>
-    </div>
-  )
+    <main>
+      <Navbar />
+      <section className='flex flex-col items-center'>
+        <Panel />
+      </section>
+    </main>
+  );
 }

@@ -104,7 +104,7 @@ export default function Content() {
                 <CarouselItem className='w-fit basis-1/1' key={banda.code}>
                   <button
                     onClick={() => {
-                      alert("presionado");
+                      alert(banda.code);
                     }}
                   >
                     <Card
