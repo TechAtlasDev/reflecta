@@ -22,6 +22,11 @@ export default function Hero() {
             alt='Logo de la NASA'
             src='/logos/nasa.png'
           />
+          <img
+            className='col-span-1 size-40'
+            alt='Logo del equipo'
+            src='/logos/team.png'
+          />
         </div>
       </div>
 
