@@ -1,4 +1,22 @@
+import { useState } from "react";
+import { login } from "./logic";
+import { useNavigate } from "react-router-dom";
+
 export default function Formulario() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  async function handleSubmit() {
+    const response = await login(username, password);
+    if (response) {
+      navigate("/profile");
+    } else {
+      alert("Error al iniciar sesión");
+    }
+  }
+
   return (
     <section className='flex flex-col items-center px-10 shadow-2xl shadow-purple-900 py-10 gap-6'>
       <h1 className='font-bold text-4xl'>Login</h1>
@@ -13,7 +31,14 @@ export default function Formulario() {
             >
               <path d='M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z' />
             </svg>
-            <input type='text' class='grow' placeholder='Username' />
+            <input
+              type='text'
+              class='grow'
+              placeholder='Username'
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
           </label>
           <label class='input input-bordered flex items-center gap-2'>
             <svg
@@ -28,14 +53,26 @@ export default function Formulario() {
                 clip-rule='evenodd'
               />
             </svg>
-            <input type='password' class='grow' placeholder='Password' />
+            <input
+              type='password'
+              class='grow'
+              placeholder='Password'
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
           </label>
         </article>
       </form>
       <article className='flex flex-col items-center gap-2 w-full'>
-        <a href='/dashboard' className='w-full btn btn-primary'>
+        <button
+          className='w-full btn btn-primary'
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
           Iniciar sesión
-        </a>
+        </button>
         <a href='/signup' className='w-full btn btn-secondary'>
           Crear cuenta
         </a>
