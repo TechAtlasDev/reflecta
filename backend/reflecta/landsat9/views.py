@@ -1,4 +1,3 @@
-import ephem
 from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
@@ -7,73 +6,59 @@ from .models import LandsatImage
 from .serializers import *
 import ee
 from rest_framework.pagination import PageNumberPagination
-from datetime import datetime, timedelta
+import ee
+from django.http import JsonResponse
+from django.views import View
+
+from .functions.coordenadas import *
 
 class LandsatImagePagination(PageNumberPagination):
     page_size = 10  # Número de resultados por página
     page_size_query_param = 'page_size'
     max_page_size = 100  # Máximo de imágenes por página
 
-class LandsatImageListView(generics.ListAPIView):
-    serializer_class = LandsatImageSerializer
-    permission_classes = [IsAuthenticated]
-    pagination_class = LandsatImagePagination
+class LandsatImageView(View):
+    def get(self, request):
+        # Obtener parámetros de la consulta
+        start_date = request.GET.get('start_date')
+        end_date = request.GET.get('end_date')
+        bbox = request.GET.get('bbox')
 
-    def get_queryset(self):
-        # Obtener los parámetros de consulta
-        start_date = self.request.query_params.get('start_date')
-        end_date = self.request.query_params.get('end_date')
-        bbox = self.request.query_params.get('bbox')  # Espera una cadena JSON
+        if not (start_date and end_date and bbox):
+            return JsonResponse({'error': 'Faltan parámetros: start_date, end_date y bbox son necesarios.'}, status=400)
 
-        # Verificar si los parámetros necesarios están presentes
-        if not all([start_date, end_date, bbox]):
-            return LandsatImage.objects.none()
-
+        # Procesar el bbox
         try:
-            # Convertir la cadena bbox en un objeto Geometry
-            bbox = ee.Geometry.BBox(*map(float, bbox.strip('[]').split(',')))
-        except Exception:
-            return LandsatImage.objects.none()
+            bbox = eval(bbox)  # Asegúrate de que el bbox es seguro usar eval()
+            if len(bbox) != 4:
+                raise ValueError("El bbox debe tener 4 valores.")
+        except Exception as e:
+            return JsonResponse({'error': f'Error procesando el bbox: {str(e)}'}, status=400)
 
-        # Filtrar la colección de imágenes Landsat con los parámetros proporcionados
-        collection = ee.ImageCollection('LANDSAT/LC09/C02/T1') \
-            .filterDate(start_date, end_date) \
-            .filterBounds(bbox) \
-            .filterMetadata('CLOUD_COVER', 'less_than', 15) \
-            .sort('CLOUD_COVER')
+        # Crear una colección de imágenes
+        collection = ee.ImageCollection('LANDSAT/LC09/C02/T1')
+        
+        # Filtrar por fecha y bbox
+        filtered_collection = collection.filterDate(start_date, end_date).filterBounds(ee.Geometry.Rectangle(bbox))
 
-        # Obtener el número de la página actual
-        page = int(self.request.query_params.get('page', 1))
-        page_size = self.pagination_class().get_page_size(self.request)
+        # Imprimir el número de imágenes encontradas
+        image_count = filtered_collection.size().getInfo()
+        print(f'Número de imágenes encontradas: {image_count}')
 
-        # Limitar la colección a la página actual
-        images = collection.toList(page * page_size).getInfo()  # Traer solo las imágenes de la página
+        # Obtener la primera imagen de la colección
+        image = filtered_collection.first()
 
-        # Crear una lista para almacenar las imágenes que se van a procesar
-        landsat_images = []
+        if image is None or image_count == 0:
+            return JsonResponse({'error': 'No se encontraron imágenes para las fechas y el área especificadas.'}, status=404)
 
-        # Procesar los datos de cada imagen
-        for img in images[(page - 1) * page_size: page * page_size]:
-            landsat_images.append({
-                'image_id': img['id'],
-                'fecha_captura': img['properties']['DATE_ACQUIRED'],
-                'path': img['bands'][0]['id'],  # Ajusta según la estructura de tus datos
-                'bbox': bbox.coordinates().getInfo(),
-                'bandas': img['bands'],  # Ajusta según la estructura de las bandas
-                'procesado': False,
-                'url_renderizada': '',
-            })
+        # Generar una URL para la visualización de la imagen
+        url = image.getThumbUrl({'min': 0, 'max': 3000, 'dimensions': 512})
+        
+        # Imprimir el URL de la imagen
+        print(f'URL de la imagen: {url}')
 
-        # Guardar las imágenes en la base de datos si no existen
-        for img_data in landsat_images:
-            LandsatImage.objects.get_or_create(
-                image_id=img_data['image_id'],
-                defaults=img_data
-            )
-
-        # Retornar el queryset paginado
-        queryset = LandsatImage.objects.all()
-        return queryset
+        # Devuelve la URL en formato JSON
+        return JsonResponse({'image_url': url})
 
 class LandsatImageFilterView(APIView):
     permission_classes = [IsAuthenticated]
@@ -253,77 +238,25 @@ class LandsatImageDownloadView(APIView):
 
         return Response({"message": "Exportación iniciada. Verifica tu Google Drive."}, status=status.HTTP_200_OK)
     
-
+# Obtener las coordenadas actuales del landsat
 class LandsatCoordinatesView(APIView):
     def get(self, request):
 
-        ephem.now()  # Actualizar la fecha y hora actual
-
-        # Definir el satélite Landsat 9 con sus TLE actualizados
-        landsat_9 = ephem.readtle(
-            'Landsat 9',
-            '1 49260U 21088A   24274.23553067  .00001568  00000-0  35814-3 0  9994',
-            '2 49260  98.2225 342.5236 0001395  92.4131 267.7227 14.57097040159986',
-        )
-
-        # Establecer el tiempo actual
-        landsat_9.compute()
-
-        # Obtener las coordenadas
-        lat = landsat_9.sublat  # Latitud
-        lon = landsat_9.sublong  # Longitud
-
-        # Convertir a grados decimales
-        lat = lat * (180.0 / 3.141592653589793)
-        lon = lon * (180.0 / 3.141592653589793)
-
-        # Serializar la respuesta
-        data = {
-            'latitude': lat,
-            'longitude': lon
-        }
+        data = getCoordenadas()
         serializer = LandsatCoordinatesSerializer(data=data)
 
         if serializer.is_valid():
             return Response(serializer.data)
         return Response(serializer.errors, status=400)
     
+# Obtener próximas "x" pasadas del landsat
 class FutureLandsatCoordinatesView(APIView):
     def get(self, request):
         # Obtener los parámetros de la consulta
         steps = int(request.GET.get('steps', 10))  # número de pasos
         interval = int(request.GET.get('interval', 10))  # intervalo en minutos
 
-        # Definir el satélite Landsat 9 con sus TLE actualizados
-        landsat_9 = ephem.readtle(
-            'Landsat 9',
-            '1 49260U 21088A   24273.75483892  .00001457  00000-0  33357-3 0  9995',
-            '2 49260  98.2226 342.0491 0001388  92.6026 267.5331 14.57094968159926'
-        )
-
-        # Lista para almacenar las coordenadas futuras
-        future_coordinates = []
-
-        # Establecer el tiempo inicial (actual)
-        current_time = datetime.utcnow()
-
-        for i in range(steps):
-            # Calcular la posición en el tiempo actual
-            landsat_9.compute(current_time)
-
-            # Obtener las coordenadas
-            lat = landsat_9.sublat  # Latitud
-            lon = landsat_9.sublong  # Longitud
-
-            # Agregar a la lista
-            future_coordinates.append({
-                'timestamp': current_time.isoformat(),
-                'latitude': lat,
-                'longitude': lon
-            })
-
-            # Aumentar el tiempo
-            current_time += timedelta(minutes=interval)
+        future_coordinates = futurasCoordenadas(steps, interval)
 
         # Serializar la respuesta
         serializer = FutureLandsatCoordinatesSerializer(data=future_coordinates, many=True)
@@ -332,6 +265,7 @@ class FutureLandsatCoordinatesView(APIView):
             return Response(future_coordinates)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+# Definir cuándo el landsat pasará en ciertas coordenadas
 class LandsatPassTimeView(APIView):
     def get(self, request):
         # Obtener los parámetros de la consulta
@@ -348,29 +282,7 @@ class LandsatPassTimeView(APIView):
         except ValueError:
             return Response({"error": "Las coordenadas deben ser números."}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Definir el satélite Landsat 9 con sus TLE actualizados
-        landsat_9 = ephem.readtle(
-            'Landsat 9',
-            '1 49260U 21088A   24273.75483892  .00001457  00000-0  33357-3 0  9995',
-            '2 49260  98.2226 342.0491 0001388  92.6026 267.5331 14.57094968159926'
-        )
-
-        # Establecer el tiempo inicial (actual)
-        current_time = datetime.utcnow()
-
-        # Inicializar una lista para almacenar los tiempos de paso
-        pass_times = []
-
-        # Buscar los próximos pasos durante los próximos 16 días
-        for _ in range(2304):  # 16 días * 144 (cada 10 minutos)
-            landsat_9.compute(current_time)
-
-            # Comprobar si el satélite está sobre las coordenadas proporcionadas
-            if (landsat_9.sublat - lat) ** 2 + (landsat_9.sublong - lon) ** 2 < 0.01:  # ajuste el umbral según sea necesario
-                pass_times.append(current_time.isoformat())
-
-            # Aumentar el tiempo
-            current_time += timedelta(minutes=10)  # comprobar cada 10 minutos
+        pass_times = pasaraEn(lat, lon)
 
         if pass_times:
             # Retornar el primer tiempo de paso

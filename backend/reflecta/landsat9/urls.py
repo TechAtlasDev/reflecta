@@ -2,7 +2,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('images/', LandsatImageListView.as_view(), name='landsat_image_list'),
+    path('images/', LandsatImageView.as_view(), name='landsat_image_list'),
     path('filter/', LandsatImageFilterView.as_view(), name='landsat_image_filter'),
     path('render/', LandsatImageRenderView.as_view(), name='landsat_image_render'),
     path('download/', LandsatImageDownloadView.as_view(), name='landsat_image_download'),
