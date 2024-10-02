@@ -19,6 +19,48 @@ class LandsatImagePagination(PageNumberPagination):
 
 class LandsatImageView(View):
     def get(self, request):
+        # Obtener parámetros de la solicitud
+        lat = float(request.GET.get('lat', 0))
+        lon = float(request.GET.get('lon', 0))
+        zoom = int(request.GET.get('zoom', 3))
+        date_start = request.GET.get('date_start', '2021-10-01')
+        date_end = request.GET.get('date_end', '2024-12-31')
+
+        # Calcular el área de interés basada en el zoom
+        scale = 591657550.5 / (2 ** (zoom - 1))  # Aproximación del tamaño del área visible
+        bbox = ee.Geometry.Point([lon, lat]).buffer(scale / 2).bounds()
+
+        # Obtener la colección de imágenes de Landsat 9
+        collection = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')\
+            .filterBounds(bbox)\
+            .filterDate(ee.Date(date_start), ee.Date(date_end))\
+            .sort('CLOUD_COVER')
+
+        # Obtener la imagen menos nublada
+        image = collection.first()
+
+        if image is None:
+            return JsonResponse({'error': 'No se encontraron imágenes para el área y período especificados'}, status=404)
+
+        # Parámetros de visualización para color verdadero
+        vis_params = {
+            'bands': ['SR_B4', 'SR_B3', 'SR_B2'],
+            'min': 0,
+            'max': 0.3,
+            'gamma': 1.4
+        }
+
+        # Obtener la URL de visualización
+        map_id = image.getMapId(vis_params)
+        
+        return JsonResponse({
+            'url': map_id['tile_fetcher'].url_format,
+            'date': image.date().format('YYYY-MM-dd').getInfo(),
+            'cloud_cover': image.get('CLOUD_COVER').getInfo()
+        })
+
+
+
         # Obtener parámetros de la consulta
         start_date = request.GET.get('start_date')
         end_date = request.GET.get('end_date')
