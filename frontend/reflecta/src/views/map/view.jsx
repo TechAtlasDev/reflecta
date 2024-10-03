@@ -1,74 +1,9 @@
-import {
-  MapContainer,
-  TileLayer,
-  useMapEvents,
-  Marker,
-  Popup,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useState, useEffect, useRef } from "react";
-import L from "leaflet"; // Importa Leaflet para crear el icono personalizado
-import Interfaz from "./interfaz";
+import { useState, useEffect } from "react";
 import GetCordinates from "./functions/locationLandsat";
-
-// Define el icono personalizado
-const landsatIcon = L.icon({
-  iconUrl: "/icons/landsat.png",
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
-});
-
-const markerIcon = L.icon({
-  iconUrl: "/icons/marker.png",
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
-});
-
-const pinIcon = L.icon({
-  iconUrl: "/icons/pin.png",
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
-});
-
-function HandlerMap() {
-  const [clickedPosition, setClickedPosition] = useState(null);
-  const markerRef = useRef(null); // Referencia para el marcador
-
-  // Registrar el evento de clic en el mapa
-  useMapEvents({
-    click: (event) => {
-      setClickedPosition(event.latlng); // Guarda la latitud y longitud del clic
-
-      // Si el marcador ya está creado, abrir automáticamente el popup
-      if (markerRef.current) {
-        markerRef.current.openPopup();
-      }
-    },
-  });
-
-  return clickedPosition === null ? null : (
-    // Si hay una posición de clic, muestra un marcador con el popup abierto automáticamente
-    <Marker position={clickedPosition} ref={markerRef} icon={pinIcon}>
-      <Popup autoPan={false}>
-        <button
-          className='btn btn-xs btn-outline btn-success'
-          onClick={() => alert("Botón presionado")}
-        >
-          Notificar cuando Landsat pase aquí
-        </button>
-        <button
-          className='btn btn-xs btn-outline btn-primary'
-          onClick={() => alert("Botón presionado")}
-        >
-          Mostrar metadatos
-        </button>
-      </Popup>
-    </Marker>
-  );
-}
+import { landsatIcon, markerIcon } from "./components/icons";
+import Interfaz from "./interfaz";
 
 function Map() {
   const [landsatCoordinates, setLandsatCoordinates] = useState(null);
@@ -107,9 +42,8 @@ function Map() {
 
   return (
     <main className='relative w-screen h-screen overflow-hidden'>
-      {/* Mapa */}
       <MapContainer
-        center={[10, 10]} // Coordenadas iniciales
+        center={[0, 0]} // Coordenadas iniciales
         zoom={2} // Nivel de zoom inicial
         className='w-screen h-screen absolute z-0'
         zoomControl={false}
@@ -118,8 +52,14 @@ function Map() {
           url='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidGVjaGF0bGFzZGV2IiwiYSI6ImNtMWw2anpnZTAyZG8ybm9rYjdsdmI0a2IifQ.e3n0BC8mLsl5rYgx9mBQKQ'
           attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
         />
-        <HandlerMap />
-
+        {landsatImageUrl && (
+          <TileLayer
+            url={landsatImageUrl} // Añade la capa de imagen Landsat
+            attribution="&copy; <a href='https://earthengine.google.com/'>Earth Engine</a>"
+          />
+        )}
+        <MapEventsHandler />{" "}
+        {/* Componente para manejar los eventos de movimiento del mapa */}
         {landsatCoordinates && (
           <Marker
             alt='Landsat9'
@@ -136,7 +76,6 @@ function Map() {
             </Popup>
           </Marker>
         )}
-
         {userCoordinates && (
           <Marker
             position={[userCoordinates.latitude, userCoordinates.longitude]}
@@ -156,10 +95,20 @@ function Map() {
         )}
       </MapContainer>
 
-      {/* Sección de la interfaz */}
       <section className='w-screen absolute z-10 pointer-events-none'>
         <Interfaz />
       </section>
+
+      {/* Mostrar información adicional de la imagen de Landsat */}
+      {landsatImageUrl && (
+        <div className='absolute top-0 left-0 bg-white p-4 z-20'>
+          <p>
+            <b>Imagen de Landsat:</b>
+          </p>
+          <p>Fecha: {imageDate}</p>
+          <p>Cobertura de nubes: {cloudCover}%</p>
+        </div>
+      )}
     </main>
   );
 }
