@@ -15,7 +15,7 @@ export default function Navbar() {
   });
 
   return (
-    <nav class='navbar bg-blur'>
+    <nav class='navbar bg-slate-950'>
       <div class='flex-1'>
         <a href='/' class='btn btn-ghost text-lg font-normal font-mono'>
           Reflecta

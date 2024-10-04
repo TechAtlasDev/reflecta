@@ -5,13 +5,12 @@ import Title from "@/components/Title";
 export default function Hero() {
   return (
     <section className='flex flex-col items-center mt-10 gap-10 my-20'>
-      
-      <Title text="Landsat 9"/>
+      <Title text='Landsat 9' />
       <GridIntegrations>
         <ItemIntegrations
-          to='/dashboard/bandas'
+          to='/dashboard/usos'
           size='md:col-span-5'
-          title='Descubre lo Invisible'
+          title='Sus usos'
           image='/ondas.jpeg'
         >
           Con la avanzada tecnología del <strong>satélite Landsat 9</strong> y
@@ -21,9 +20,9 @@ export default function Hero() {
         </ItemIntegrations>
 
         <ItemIntegrations
-          to="/dashboard/gallery"
+          to='/dashboard/noticias'
           size='md:col-span-3'
-          title='Galería de Imágenes'
+          title='Noticias más recientes'
           image='https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274_1280.jpg'
         >
           Sumérgete en una <strong>inspiradora galería</strong> de imágenes que
@@ -35,9 +34,20 @@ export default function Hero() {
         </ItemIntegrations>
 
         <ItemIntegrations
-          to="/dashboard/learn"
-          size='md:col-span-8'
-          title='Aprende y Descubre el Futuro'
+          to='/dashboard/antecedentes'
+          size='md:col-span-3'
+          title='Proyectos anteriores al Landsat 9'
+          image='https://www.laprensagrafica.com/__export/1696698829952/sites/prensagrafica/img/2023/10/07/64b05f3c80d5d.jpeg_1758632411.jpeg'
+        >
+          Descubre por qué el <strong>satélite Landsat 9</strong> es uno de los
+          más revolucionarios de nuestra era y cómo su tecnología puede
+          transformar nuestra vida cotidiana.
+        </ItemIntegrations>
+
+        <ItemIntegrations
+          to='/dashboard/landsat9'
+          size='md:col-span-5'
+          title='Más del Landsat 9'
           image='https://www.laprensagrafica.com/__export/1696698829952/sites/prensagrafica/img/2023/10/07/64b05f3c80d5d.jpeg_1758632411.jpeg'
         >
           Descubre por qué el <strong>satélite Landsat 9</strong> es uno de los

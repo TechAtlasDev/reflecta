@@ -52,13 +52,6 @@ function Map() {
           url='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidGVjaGF0bGFzZGV2IiwiYSI6ImNtMWw2anpnZTAyZG8ybm9rYjdsdmI0a2IifQ.e3n0BC8mLsl5rYgx9mBQKQ'
           attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
         />
-        {landsatImageUrl && (
-          <TileLayer
-            url={landsatImageUrl} // Añade la capa de imagen Landsat
-            attribution="&copy; <a href='https://earthengine.google.com/'>Earth Engine</a>"
-          />
-        )}
-        <MapEventsHandler />{" "}
         {/* Componente para manejar los eventos de movimiento del mapa */}
         {landsatCoordinates && (
           <Marker
@@ -100,15 +93,6 @@ function Map() {
       </section>
 
       {/* Mostrar información adicional de la imagen de Landsat */}
-      {landsatImageUrl && (
-        <div className='absolute top-0 left-0 bg-white p-4 z-20'>
-          <p>
-            <b>Imagen de Landsat:</b>
-          </p>
-          <p>Fecha: {imageDate}</p>
-          <p>Cobertura de nubes: {cloudCover}%</p>
-        </div>
-      )}
     </main>
   );
 }
