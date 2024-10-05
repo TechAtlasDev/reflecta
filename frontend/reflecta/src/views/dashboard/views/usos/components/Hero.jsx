@@ -1,5 +1,4 @@
 import Title from "@/components/Title";
-import Gradientwrapper from "@/components/GradientWrapper";
 
 import GridIntegrations from "@/views/dashboard/components/GridIntegrations";
 import ItemIntegrations from "@/views/dashboard/components/ItemIntegrations";
@@ -7,6 +6,7 @@ import ItemIntegrations from "@/views/dashboard/components/ItemIntegrations";
 export default function Hero() {
   const usosLandsat9 = [
     {
+      to: "/usos/agricultura",
       title: "Agricultura Inteligente",
       description:
         "Cultivemos un futuro más verde con Landsat 9. El Landsat 9 permite monitorear cultivos de manera precisa, ayudando a optimizar la producción y garantizar cosechas más saludables.",
@@ -74,12 +74,7 @@ export default function Hero() {
 
   return (
     <section className='flex flex-col items-center gap-10 mb-20'>
-      <Gradientwrapper
-        className='mt-10'
-        wrapperClassName='max-w-3xl h-[250px] top-12 inset-0 sm:h-[300px] lg:h-[650px]'
-      >
-        <Title text='⚒️ Sus usos' />
-      </Gradientwrapper>
+      <Title text='⚒️ Utilidades' />
 
       <GridIntegrations>
         {usosLandsat9.map((uso, index) => (
@@ -88,6 +83,7 @@ export default function Hero() {
             title={uso.title}
             key={index}
             image={uso.image}
+            to={uso.to}
           >
             <p className='text-sm'>{uso.description}</p>
           </ItemIntegrations>
