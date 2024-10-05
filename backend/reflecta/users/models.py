@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, first_name, password=None):
@@ -25,6 +26,9 @@ class CustomUser(AbstractBaseUser):
     first_name = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    coordinates = ArrayField(
+        models.FloatField(), null=True, blank=True, size=2, default=list
+    )
 
     objects = CustomUserManager()
 
