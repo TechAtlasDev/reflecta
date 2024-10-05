@@ -24,15 +24,15 @@ export function HandlerMap() {
       <Popup autoPan={false}>
         <button
           className='btn btn-xs btn-outline btn-success'
-          onClick={() => alert("Botón presionado")}
+          onClick={() => alert("Button pressed")}
         >
-          Notificar cuando Landsat pase aquí
+          Notify when Landsat is here
         </button>
         <button
           className='btn btn-xs btn-outline btn-primary'
-          onClick={() => alert("Botón presionado")}
+          onClick={() => alert("Button pressed")}
         >
-          Mostrar metadatos
+          Show metadata
         </button>
       </Popup>
     </Marker>

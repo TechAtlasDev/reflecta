@@ -75,13 +75,13 @@ function Map() {
             icon={markerIcon}
           >
             <Popup>
-              Tu ubicación: {userCoordinates.latitude},{" "}
+              You're here: {userCoordinates.latitude},{" "}
               {userCoordinates.longitude}
               <button
                 className='btn btn-xs btn-outline btn-success'
-                onClick={() => alert("Botón presionado")}
+                onClick={() => alert("The button was pushed")}
               >
-                Notificar cuando Landsat pase aquí
+                Notify when Landsat gets here
               </button>
             </Popup>
           </Marker>

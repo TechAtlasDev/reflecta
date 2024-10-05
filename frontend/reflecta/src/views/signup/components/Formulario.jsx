@@ -16,7 +16,7 @@ export default function Formulario() {
     if (response) {
       navigate("/profile");
     } else {
-      alert("Error al registrar el usuario");
+      alert("Error registering user");
     }
   }
 
@@ -111,7 +111,7 @@ export default function Formulario() {
             registerUser();
           }}
         >
-          Crear cuenta
+          Sign in
         </button>
       </article>
     </section>

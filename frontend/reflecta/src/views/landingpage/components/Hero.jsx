@@ -12,7 +12,7 @@ export default function Hero() {
           <br />
 
           <span className='bg-clip-text text-transparent text-center bg-gradient-to-b from-purple-100 to-purple-500 text-xl md:text-xl lg:text-4xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight'>
-            Refleja tu inspiración
+            Reflect your inspiration
           </span>
         </div>
 

@@ -45,6 +45,6 @@ export default function ProfilePage() {
       </section>
     </main>
   ) : (
-    <h1>Cargando...</h1>
+    <h1>Loading...</h1>
   );
 }

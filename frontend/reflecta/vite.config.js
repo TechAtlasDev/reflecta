@@ -12,7 +12,7 @@ export default defineConfig({
       manifest: {
         name: 'Mi PWA',
         short_name: 'PWA',
-        description: 'Esta es una Progressive Web App.',
+        description: 'This is a Progressive Web App.',
         theme_color: '#56368D',
         background_color: '#56368D',
         display: 'standalone',

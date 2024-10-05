@@ -18,21 +18,21 @@ export default function Carrusel() {
     {
       nameBanda: "Coste 1 (Azul)",
       description:
-        "Sensible a la profundidad del agua, nubes y aerosoles. Se utiliza para identificar áreas de contaminación del agua.",
+        "Sensitive to water depth, clouds and aerosols. Used to identify areas of water contamination.",
       code: "B1",
       color: "to-blue-500",
     },
     {
       nameBanda: "Coste 2 (Verde)",
       description:
-        "Sensible a la vegetación, la clorofila y la salud de las plantas. Se utiliza para mapear la vegetación y la agricultura.",
+        "Sensitive to vegetation, chlorophyll and plant health. Used for vegetation mapping and agriculture.",
       code: "B2",
       color: "to-green-500",
     },
     {
       nameBanda: "Coste 3 (Rojo)",
       description:
-        "Sensible a la vegetación, la clorofila y la salud de las plantas. Se utiliza para detectar la presencia de incendios forestales.",
+        "Sensitive to vegetation, chlorophyll and plant health. Used to detect the presence of forest fires.",
       code: "B3",
       color: "to-red-500",
     },

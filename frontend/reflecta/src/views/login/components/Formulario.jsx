@@ -71,10 +71,10 @@ export default function Formulario() {
             handleSubmit();
           }}
         >
-          Iniciar sesión
+          Log in
         </button>
         <a href='/signup' className='w-full btn btn-secondary'>
-          Crear cuenta
+          Sign in
         </a>
       </article>
     </section>

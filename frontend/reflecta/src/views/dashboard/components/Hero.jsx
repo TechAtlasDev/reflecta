@@ -40,10 +40,8 @@ export default function Hero() {
           title='Sus usos'
           image='/ondas.jpeg'
         >
-          Con la avanzada tecnología del <strong>satélite Landsat 9</strong> y
-          sus cámaras especializadas, ahora es posible observar fenómenos
-          invisibles al ojo humano, revelando{" "}
-          <strong>misterios fascinantes</strong> ocultos en nuestro entorno.
+          With the advanced technology of the <strong>Landsat 9</strong> satellite and its specialized cameras, it is now possible to observe phenomena invisible to the human eye, revealing{" "}
+          <strong>fascinating mysteries</strong> hidden in our environment.
         </ItemIntegrations>
 
         <ItemIntegrations
@@ -52,12 +50,7 @@ export default function Hero() {
           title='Noticias más recientes'
           image='https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274_1280.jpg'
         >
-          Sumérgete en una <strong>inspiradora galería</strong> de imágenes que
-          capturan la esencia del <strong>Landsat 9</strong> en todo su
-          esplendor. Descubre la{" "}
-          <strong>magia de la observación terrestre</strong> y sé testigo del{" "}
-          <strong>impacto transformador</strong> que estas imágenes pueden tener
-          en nuestra comprensión del planeta.
+          Dive into an <strong>inspiring gallery</strong> of images that capture the essence of <strong>Landsat 9</strong> in all its glory. Discover the{" "} <strong>magic of Earth observation</strong> and witness the{" "} <strong>transformative impact</strong> these images can have on our understanding of the planet.
         </ItemIntegrations>
 
         <ItemIntegrations
@@ -66,9 +59,7 @@ export default function Hero() {
           title='Proyectos anteriores al Landsat 9'
           image='https://www.laprensagrafica.com/__export/1696698829952/sites/prensagrafica/img/2023/10/07/64b05f3c80d5d.jpeg_1758632411.jpeg'
         >
-          Descubre por qué el <strong>satélite Landsat 9</strong> es uno de los
-          más revolucionarios de nuestra era y cómo su tecnología puede
-          transformar nuestra vida cotidiana.
+          Discover why <strong>Landsat 9</strong> is one of the most revolutionary satellites of our time and how its technology can transform our daily lives.
         </ItemIntegrations>
 
         <ItemIntegrations
@@ -77,9 +68,7 @@ export default function Hero() {
           title='Más del Landsat 9'
           image='https://www.laprensagrafica.com/__export/1696698829952/sites/prensagrafica/img/2023/10/07/64b05f3c80d5d.jpeg_1758632411.jpeg'
         >
-          Descubre por qué el <strong>satélite Landsat 9</strong> es uno de los
-          más revolucionarios de nuestra era y cómo su tecnología puede
-          transformar nuestra vida cotidiana.
+          Discover why <strong>Landsat 9</strong> is one of the most revolutionary satellites of our time and how its technology can transform our daily lives.
         </ItemIntegrations>
       </GridIntegrations>
     </section>
