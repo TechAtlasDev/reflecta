@@ -28,7 +28,7 @@ const MarkdownPost = () => {
   return (
     <main>
       <Navbar />
-      <div className='prose lg:prose-xl mx-auto my-10'>
+      <div className='prose lg:prose-xl md:mx-auto my-10 mx-5 '>
         {meta.image && (
           <img
             src={meta.image}
