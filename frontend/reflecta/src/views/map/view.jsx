@@ -101,7 +101,7 @@ function Map() {
           >
             <Popup>
               <b>Landsat 9 is here!</b>
-              <br /> You're here: {landsatCoordinates.latitude},{" "}
+              <br />Coordinates: {landsatCoordinates.latitude},{" "}
               {landsatCoordinates.longitude}
             </Popup>
           </Marker>
