@@ -15,7 +15,7 @@ export default function Noticias() {
       if (Array.isArray(response)) {
         setListNews(response);
       } else {
-        console.error("Error: La respuesta no es un array");
+        console.error("Error: The response is not an array");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
