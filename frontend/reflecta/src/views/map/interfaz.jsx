@@ -24,7 +24,7 @@ export default function Interfaz() {
           <div className='flex flex-col gap-2'>
             <article className='flex flex-row items-center justify-between gap-2'>
               <span>
-                <strong>Decoraciones</strong>
+                <strong>Decorations</strong>
               </span>
               <input
                 type='checkbox'
