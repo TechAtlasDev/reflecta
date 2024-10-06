@@ -193,10 +193,7 @@ export function History() {
       content: (
         <div>
           <p>
-            🚀 <b className='font-bold'>Lanzado el 15 de abril de 1999</b>,
-            Landsat 7 introdujo el Enhanced Thematic Mapper Plus (ETM+). Aunque
-            sufrió un fallo en 2003, continuó siendo útil en estudios de
-            deforestación y glaciología.
+            🚀 <b className='font-bold'>Launched on April 15, 1999</b>, Landsat 7 introduced the Enhanced Thematic Mapper Plus (ETM+). Although it failed in 2003, it remained useful in deforestation and glaciology studies.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
-  const [username, setUsername] = useState("Mi perfil");
+  const [username, setUsername] = useState("Profile");
 
   function getUsername() {
     const user = localStorage.getItem("username");
