@@ -100,7 +100,7 @@ function Map() {
             ]}
           >
             <Popup>
-              <b>¡El Landsat 9 se encuentra aquí!</b>
+              <b>Landsat 9 is here!</b>
               <br /> You're here: {landsatCoordinates.latitude},{" "}
               {landsatCoordinates.longitude}
             </Popup>
@@ -144,7 +144,7 @@ function Map() {
                 className='btn btn-xs btn-outline btn-primary'
                 onClick={() => alert("Mostrar metadatos")}
               >
-                Mostrar metadatos
+                Show metadata
               </button>
             </Popup>
           </Marker>
