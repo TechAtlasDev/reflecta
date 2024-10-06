@@ -93,7 +93,7 @@ export default function Content() {
     <article className=''>
       <h2 className='text-2xl text-white font-bold'>⚙️ Settings</h2>
       <p>
-        Here you can choose from all the options offered by Landsat9!
+        Here you can choose from all the options offered by Landsat 9!
       </p>
       <div className='mx-14 my-5 xl:mx-20 xl:my-10'>
         <Carousel className='w-11/12 min-h-52 flex flex-row items-center mb-10'>

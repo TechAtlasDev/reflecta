@@ -92,7 +92,7 @@ function Map() {
         {/* Mostrar marcador de Landsat */}
         {landsatCoordinates && (
           <Marker
-            alt='Landsat9'
+            alt='Landsat 9'
             icon={landsatIcon}
             position={[
               landsatCoordinates.latitude,
