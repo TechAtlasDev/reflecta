@@ -14,7 +14,8 @@ import Noticias from "./views/dashboard/views/noticias/view";
 import Usos from "./views/dashboard/views/usos/view";
 import Landast9 from "./views/dashboard/views/landsat9/view";
 import Antecedentes from "./views/dashboard/views/antecedentes/view";
-import MarkdownPost from "./Markdownposts"; // Importa el componente MarkdownPost
+import MarkdownPost from "./Markdownposts";
+import Models from "./views/dashboard/models/view";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -27,6 +28,7 @@ createRoot(document.getElementById("root")).render(
       <Route path='/dashboard' element={<DashboardPage />} />
       <Route path='/dashboard/usos' element={<Usos />} />
       <Route path='/dashboard/noticias' element={<Noticias />} />
+      <Route path='/dashboard/models' element={<Models />} />
       <Route path='/dashboard/landsat9' element={<Landast9 />} />
       <Route path='/dashboard/antecedentes' element={<Antecedentes />} />
       <Route path='/dashboard/bandas' element={<BandasPage />} />

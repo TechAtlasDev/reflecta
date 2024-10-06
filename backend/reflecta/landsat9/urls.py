@@ -9,4 +9,5 @@ urlpatterns = [
     path('coordinates/', LandsatCoordinatesView.as_view(), name='landsat-coordinates'),
     path('future-landsat-coordinates/', FutureLandsatCoordinatesView.as_view(), name='future-landsat-coordinates'),
     path('landsat-pass-time/', LandsatPassTimeView.as_view(), name='landsat-pass-time'),
+    path('news/', LandsatNews.as_view(), name='landsat-news')
 ]
