@@ -142,7 +142,7 @@ function Map() {
               </button>
               <button
                 className='btn btn-xs btn-outline btn-primary'
-                onClick={() => alert("Mostrar metadatos")}
+                onClick={() => alert("Show metadata")}
               >
                 Show metadata
               </button>
