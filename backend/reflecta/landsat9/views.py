@@ -9,11 +9,7 @@ from rest_framework.pagination import PageNumberPagination
 import ee
 from django.http import JsonResponse
 from django.views import View
-import io
 import ee
-import numpy as np
-import matplotlib.pyplot as plt
-from django.http import HttpResponse
 from django.views import View
 
 from .functions.coordenadas import *
