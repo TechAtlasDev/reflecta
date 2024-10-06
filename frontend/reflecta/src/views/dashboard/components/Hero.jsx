@@ -74,8 +74,17 @@ export default function Hero() {
         <ItemIntegrations
           to='/dashboard/landsat9'
           size='md:col-span-5'
-          title='Más del Landsat 9'
-          image='https://www.laprensagrafica.com/__export/1696698829952/sites/prensagrafica/img/2023/10/07/64b05f3c80d5d.jpeg_1758632411.jpeg'
+          title='Landsat 9'
+          image='https://www.gisandbeers.com/wp-content/uploads/2022/02/Bandas-Landsat-9.jpg'
+        >
+          Descubre por qué el <strong>satélite Landsat 9</strong> es uno de los
+          más revolucionarios de nuestra era y cómo su tecnología puede
+          transformar nuestra vida cotidiana.
+        </ItemIntegrations>
+        <ItemIntegrations
+          to='/dashboard/models'
+          title='Modelos predictivos'
+          image='https://www.gisandbeers.com/wp-content/uploads/2022/02/Bandas-Landsat-9.jpg'
         >
           Descubre por qué el <strong>satélite Landsat 9</strong> es uno de los
           más revolucionarios de nuestra era y cómo su tecnología puede
