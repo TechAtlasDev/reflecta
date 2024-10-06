@@ -12,7 +12,6 @@ export default function Noticias() {
   async function fetchListData() {
     try {
       const response = await fetchData();
-      // Verifica que la respuesta sea un array
       if (Array.isArray(response)) {
         setListNews(response);
       } else {
@@ -25,7 +24,6 @@ export default function Noticias() {
 
   useEffect(() => {
     fetchListData();
-    console.log(listNews);
   }, []);
 
   return (
@@ -33,11 +31,15 @@ export default function Noticias() {
       <Navbar />
       <Title text='Noticias del Landsat9' />
       <GridIntegrations>
-        {/* Verifica que listNews no esté vacío antes de hacer el map */}
         {listNews.length > 0 ? (
-          listNews.map((item, index) => (
-            <ItemIntegrations key={index} text={item.h1}>
-              {item.h1}
+          listNews.map((item) => (
+            <ItemIntegrations
+              key={item.title}
+              title={item.title}
+              image={item.image}
+            >
+              {item.Fecha}
+              <br /> {item.Extracto}
             </ItemIntegrations>
           ))
         ) : (

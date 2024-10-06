@@ -3,10 +3,20 @@ import { urlAPI } from "@/components/variables";
 export default async function fetchData() {
   const url = `${urlAPI}/landsat9/news`;
 
-  const response = await fetch(url);
-  const data = await response.json();
+  try {
+    const response = await fetch(url);
 
-  const responseData = data.news;
+    if (!response.ok) {
+      throw new Error("Error al obtener los datos");
+    }
 
-  return responseData;
+    const data = await response.json();
+
+    const responseData = data.news;
+
+    return responseData;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
 }
