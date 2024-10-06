@@ -29,7 +29,7 @@ export default function Noticias() {
   return (
     <main>
       <Navbar />
-      <Title text='Noticias del Landsat9' />
+      <Title text='Landsat9 News' />
       <GridIntegrations>
         {listNews.length > 0 ? (
           listNews.map((item) => (
@@ -43,7 +43,7 @@ export default function Noticias() {
             </ItemIntegrations>
           ))
         ) : (
-          <p>No hay noticias disponibles</p>
+          <p>No news available</p>
         )}
       </GridIntegrations>
     </main>
