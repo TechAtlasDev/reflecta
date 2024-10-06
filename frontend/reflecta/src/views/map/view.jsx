@@ -101,7 +101,7 @@ function Map() {
           >
             <Popup>
               <b>¡El Landsat 9 se encuentra aquí!</b>
-              <br /> Coordenadas: {landsatCoordinates.latitude},{" "}
+              <br /> You're here: {landsatCoordinates.latitude},{" "}
               {landsatCoordinates.longitude}
             </Popup>
           </Marker>
@@ -118,9 +118,9 @@ function Map() {
               {userCoordinates.longitude}
               <button
                 className='btn btn-xs btn-outline btn-success'
-                onClick={() => alert("Notificar cuando Landsat pase aquí")}
+                onClick={() => alert("Notify when Landsat is here")}
               >
-                Notificar cuando Landsat pase aquí
+                Notify when Landsat is here
               </button>
             </Popup>
           </Marker>
@@ -136,9 +136,9 @@ function Map() {
             <Popup>
               <button
                 className='btn btn-xs btn-outline btn-success'
-                onClick={() => alert("Notificar cuando Landsat pase aquí")}
+                onClick={() => alert("Notify when Landsat is here")}
               >
-                Notificar cuando Landsat pase aquí
+                Notify when Landsat is here
               </button>
               <button
                 className='btn btn-xs btn-outline btn-primary'
