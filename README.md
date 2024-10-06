@@ -1,99 +1,99 @@
 # Reflecta
 
-Para el desarrollo de este proyecto, es necesario comenzar con ciertos aspectos, uno de ellos es definir adecuadamente la ruta de desarrollo que vamos a seguir para poder tener un buen desempeño en el uso de las tecnologías y el desarrollo del proyecto.
+For the development of this project it is necessary to start from certain aspects, one of them is to properly define the development path that we are going to follow in order to have a good performance in the use of technologies and the development of the project.
 
-## Descripción del Proyecto
-Reflecta es una aplicación web progresiva (PWA) diseñada para permitir a los usuarios acceder y visualizar datos de reflectancia de imágenes satelitales. Utilizando la API de Google Earth Engine para usar el Landsat 9, la aplicación proporcionará herramientas para la visualización y análisis de datos geoespaciales, ayudando a los usuarios a obtener información sobre la cobertura terrestre y los cambios en el medio ambiente. La interfaz de usuario será moderna y receptiva, construida con React, Tailwind CSS y DaisyUI, y se desplegará en Vercel para un acceso rápido y eficiente.
+## Project Description
+Reflecta is a progressive web application (PWA) designed to allow users to access and visualize reflectance data from satellite images. Using the Google Earth Engine API to use Landsat 9, the application will provide tools for the visualization and analysis of geospatial data, helping users to obtain information about land cover and changes in the environment. The user interface will be modern and responsive, built with React, Tailwind CSS, and DaisyUI, and will be implemented in Vercel for fast and efficient access.
 
-## Objetivos Principales
-- **Acceso a Datos Satelitales**: Permitir a los usuarios acceder a datos de reflectancia de imágenes de satélite.
-- **Visualización Interactiva**: Proporcionar gráficos y visualizaciones interactivas de los datos para facilitar la comprensión.
-- **Interfaz Amigable**: Crear una interfaz de usuario moderna y fácil de usar que sea accesible en dispositivos móviles y de escritorio.
-- **Despliegue Eficiente**: Implementar la aplicación como una PWA y desplegarla en Vercel para optimizar el rendimiento y la disponibilidad.
-- **Descarga de datos:** Habilitar la posibilidad de poder descargar los datos del Landsat 9 en formatos que se requiera como CSV.
+## Main Objectives
+- **Access to Satellite Data**: Allow users to access reflectance data from satellite images.
+- **Interactive Visualization**: Provide interactive charts and visualizations of the data to make it easier to understand.
+- **Friendly Interface**: Create a modern and easy-to-use user interface that is accessible on mobile and desktop devices.
+- **Efficient Deployment**: Deploy the application as a PWA and deploy it to Vercel to optimize performance and availability.
+- **Data Download:** Enable the ability to download Landsat 9 data in required formats such as CSV.
 
-## Ruta del proyecto
+## Project Path
 
-### Paso 1: Configuración del Proyecto [TERMINADO]
-- **Objetivos**:
-  - Establecer el entorno de desarrollo y las bases del proyecto.
-- **Tareas**:
-  1. Configurar DjanNavbargo y crear un nuevo proyecto.
-  2. Inicializar un nuevo proyecto con Vite.
-  3. Verificar la instalación de backend y frontend.
+### Step 1: Project Setup [COMPLETED]
+- **Objectives**:
+- Set up the development environment and project foundations.
+- **Tasks**:
+1. Configure DjanNavbargo and create a new project.
+2. Initialize a new project with Vite.
+3. Verify the backend and frontend installation.
 
-### Paso 2: Definición de Modelos y API
-- **Objetivos**:
-  - Crear el modelo de datos y configurar la API REST.
-- **Tareas**:
-  1. Definir los modelos en Django.
-  2. Configurar serializers y vistas.
-  3. Establecer las rutas para la API.
+### Step 2: Defining Models and API
+- **Goals**:
+- Create the data model and configure the REST API.
+- **Tasks**:
+1. Define the models in Django.
+2. Configure serializers and views.
+3. Configure the API routes.
 
-### Paso 3: Integración de Datos
-- **Objetivos**:
-  - Implementar la lógica para obtener datos de la API de Landsat.
-- **Tareas**:
-  1. Investigar la API de Landsat.
-  2. Desarrollar la funcionalidad para obtener datos.
-  3. Prueba de integración de datos.
+### Step 3: Data Integration
+- **Goals**:
+- Implement the logic to get data from the Landsat API.
+- **Tasks**:
+1. Research the Landsat API.
+2. Develop the functionality to get data.
+3. Test the data integration.
 
-### Paso 4: Configuración del Frontend [TERMINADO - PROTOTIPO]
-- **Objetivos**:
-  - Establecer la estructura y componentes básicos de la interfaz.
-- **Tareas**:
-  1. Crear la estructura de componentes.
-  2. Implementar la navegación con React Router.
-  3. Configurar estilos con Tailwind CSS y DaisyUI.
+### Step 4: Setting Up the Interface [DONE - PROTOTYPE]
+- **Goals**:
+- Establish the basic structure and components of the interface.
+- **Tasks**:
+1. Create the component structure.
+2. Implement navigation with React Router.
+3. Set up styles with Tailwind CSS and DaisyUI.
 
-### Paso 5: Gráficos y Visualización de Datos
-- **Objetivos**:
-  - Implementar la lógica para visualizar los datos de reflectancia.
-- **Tareas**:
-  1. Seleccionar una biblioteca de gráficos.
-  2. Crear el componente de gráfico.
-  3. Estilizar el componente con Tailwind CSS.
+### Step 5: Charts and data visualization
+- **Goals**:
+- Implement the logic to visualize the reflectance data.
+- **Tasks**:
+1. Select a chart library.
+2. Create the chart component.
+3. Style the component with Tailwind CSS.
 
-### Paso 6: Conectar Frontend y Backend
-- **Objetivos**:
-  - Integrar la interfaz de usuario con la API del backend.
-- **Tareas**:
-  1. Hacer solicitudes a la API desde el frontend.
-  2. Manejar el estado de los datos en React.
-  3. Verificar el flujo de datos.
+### Step 6: Connect the frontend and backend
+- **Goals**:
+- Integrate the UI with the backend API.
+- **Tasks**:
+1. Make requests to the API from the frontend.
+2. Handle data state in React.
+3. Verify the data flow.
 
-### Paso 7: Implementación de PWA 
-- **Objetivos**:
-  - Convertir tu aplicación en una Progressive Web App.
-- **Tareas**:
-  1. Configurar el manifest para la PWA.
-  2. Implementar service workers.
-  3. Probar la funcionalidad PWA en dispositivos móviles.
+### Step 7: PWA implementation
+- **Goals**:
+- Turn your app into a progressive web app.
+- **Tasks**:
+1. Set up the manifest for the PWA.
+2. Implement service workers.
+3. Test the PWA functionality on mobile devices.
 
-### Paso 8: Estilización y Mejoras UI
-- **Objetivos**:
-  - Mejorar la experiencia del usuario y los estilos de la aplicación.
-- **Tareas**:
-  1. Revisar y mejorar la UI.
-  2. Implementar animaciones y transiciones.
-  3. Verificar que la aplicación sea responsive.
+### Step 8: UI Style and Improvements
+- **Goals**:
+- Improve the user experience and styles of the app.
+- **Tasks**:
+1. Review and improve the UI.
+2. Implement animations and transitions.
+3. Verify that the app is responsive.
 
-### Paso 9: Pruebas y Depuración
-- **Objetivos**:
-  - Probar la aplicación y corregir errores.
-- **Tareas**:
-  1. Realizar pruebas funcionales.
-  2. Depurar errores encontrados.
-  3. Verificar la seguridad de la aplicación.
+### Step 9: Testing and Debugging
+- **Goals**:
+- Test the app and fix bugs.
+- **Tasks**:
+1. Perform functional testing.
+2. Debug any bugs found.
+3. Verify the app's security.
 
-### Paso 10: Documentación y Preparación para la Entrega
-- **Objetivos**:
-  - Documentar el proyecto y prepararse para su presentación.
-- **Tareas**:
-  1. Crear documentación en `README.md`.
-  2. Revisar el código y comentarlo.
-  3. Preparar una presentación breve del proyecto.
+### Step 10: Documentation and Preparing for Delivery
+- **Goals**:
+- Document the project and prepare for delivery.
+- **Tasks**:
+1. Create the documentation in `README.md`.
+2. Review the code and comment on it.
+3. Prepare a brief presentation of the project.
 
-## Datos adicionales
+## Additional information
 
-- Web desplegada: https://reflecta-nasa.vercel.app/
+- Web implementation: https://reflecta-nasa.vercel.app/
