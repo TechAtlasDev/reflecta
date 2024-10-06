@@ -114,7 +114,7 @@ function Map() {
             icon={markerIcon}
           >
             <Popup>
-              Your location: {userCoordinates.latitude},{" "}
+              You're here: {userCoordinates.latitude},{" "}
               {userCoordinates.longitude}
               <button
                 className='btn btn-xs btn-outline btn-success'
