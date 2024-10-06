@@ -39,10 +39,7 @@ export function History() {
       content: (
         <div>
           <p>
-            📅 <b className='font-bold'>Lanzado el 22 de enero de 1975</b>,
-            Landsat 2 mejoró la captura de imágenes multiespectrales, ayudando a
-            monitorear ecosistemas y cultivos. También fue crucial en la gestión
-            de desastres naturales como inundaciones.
+            📅 <b className='font-bold'>Launched on January 22, 1975</b>, Landsat 2 improved multispectral image capture, helping to monitor ecosystems and crops. It was also crucial in managing natural disasters such as floods.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
