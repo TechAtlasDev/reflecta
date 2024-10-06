@@ -20,13 +20,13 @@ export async function getTileFromEarthEngine(zoom, x, y) {
     const response = await fetch(tileUrl);
 
     if (!response.ok) {
-      throw new Error(`Error al obtener el tile: ${response.statusText}`);
+      throw new Error(`Error, can't obatin tile: ${response.statusText}`);
     }
 
     // Devuelve la URL del tile si la solicitud es exitosa
     return tileUrl;
   } catch (error) {
-    console.error("Error al obtener el tile:", error);
+    console.error("Error when getting tile:", error);
     throw error; // Propaga el error
   }
 }

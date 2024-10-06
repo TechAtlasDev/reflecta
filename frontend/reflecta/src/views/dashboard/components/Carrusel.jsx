@@ -16,79 +16,79 @@ import {
 export default function Carrusel() {
   const images = [
     {
-      nameBanda: "Coste 1 (Azul)",
+      nameBanda: "Band 1 (Blue)",
       description:
-        "Sensible a la profundidad del agua, nubes y aerosoles. Se utiliza para identificar áreas de contaminación del agua.",
+        "Sensitive to water depth, clouds and aerosols. Used to identify areas of water contamination.",
       code: "B1",
       color: "to-blue-500",
     },
     {
-      nameBanda: "Coste 2 (Verde)",
+      nameBanda: "Band 2 (Green)",
       description:
-        "Sensible a la vegetación, la clorofila y la salud de las plantas. Se utiliza para mapear la vegetación y la agricultura.",
+        "Sensitive to vegetation, chlorophyll and plant health. Used for vegetation mapping and agriculture.",
       code: "B2",
       color: "to-green-500",
     },
     {
-      nameBanda: "Coste 3 (Rojo)",
+      nameBanda: "Band 3 (Red)",
       description:
-        "Sensible a la vegetación, la clorofila y la salud de las plantas. Se utiliza para detectar la presencia de incendios forestales.",
+        "Sensitive to vegetation, chlorophyll and plant health. Used to detect the presence of forest fires.",
       code: "B3",
       color: "to-red-500",
     },
     {
-      nameBanda: "Coste 4 (Infrarrojo cercano)",
+      nameBanda: "Band 4 (Near infrared)",
       description:
-        "Sensible a la vegetación, la humedad del suelo y la presencia de nubes. Se utiliza para mapear la vegetación, la agricultura y la humedad del suelo.",
+        "Sensitive to vegetation, soil moisture and cloud presence. Used for mapping vegetation, agriculture and soil moisture.",
       code: "B4",
       color: "to-orange-500",
     },
     {
-      nameBanda: "Coste 5 (Infrarrojo cercano)",
+      nameBanda: "Band 5 (Near infrared)",
       description:
-        "Sensible a la vegetación, la humedad del suelo y la presencia de nubes. Se utiliza para detectar la presencia de agua.",
+        "Sensitive to vegetation, soil moisture and cloud presence. Used to detect the presence of water.",
       code: "B5",
       color: "to-yellow-500",
     },
     {
-      nameBanda: "Coste 6 (Infrarrojo de onda corta)",
+      nameBanda: "Band 6 (Shortwave infrared)",
       description:
-        "Sensible a la humedad del suelo, la cobertura de nubes y la presencia de agua. Se utiliza para mapear la humedad del suelo y la cobertura de nubes.",
+        "Sensitive to soil moisture, cloudiness and water presence. Used to map soil moisture and cloudiness.",
       code: "B6",
       color: "to-stone-500",
     },
     {
-      nameBanda: "Coste 7 (Infrarrojo de onda corta)",
+      nameBanda: "Band 7 (Shortwave infrared)",
       description:
-        "Sensible a la humedad del suelo, la cobertura de nubes y la presencia de agua. Se utiliza para detectar la presencia de nieve y hielo.",
+        "Sensitive to soil moisture, cloud cover and the presence of water. Used to detect the presence of snow and ice.",
       code: "B7",
       color: "to-gray-500",
     },
     {
-      nameBanda: "Coste 8 (Infrarrojo de onda corta)",
+      nameBanda: "Band 8 (Shortwave infrared)",
       description:
-        "Sensible a la humedad del suelo, la cobertura de nubes y la presencia de agua. Se utiliza para mapear la humedad del suelo y la cobertura de nubes.",
+        "Sensitive to soil moisture, cloudiness and water presence. Used to map soil moisture and cloudiness.",
       code: "B8",
       color: "to-purple-500",
     },
     {
-      nameBanda: "Coste 9 (Infrarrojo de onda corta)",
+      nameBanda: "Band 9 (Shortwave infrared)",
       description:
-        "Sensible a la humedad del suelo, la cobertura de nubes y la presencia de agua. Se utiliza para detectar la presencia de nieve y hielo.",
+        "Sensitive to soil moisture, cloud cover and the presence of water. Used to detect the presence of snow and ice.",
       code: "B9",
       color: "to-pink-500",
     },
     {
-      nameBanda: "Coste 10 (Infrarrojo térmico)",
+      nameBanda: "Band 10 (Thermal infrared)",
       description:
-        "Sensible a la temperatura de la superficie. Se utiliza para mapear la temperatura de la superficie, lo que es útil para aplicaciones como el monitoreo de incendios forestales, la gestión de recursos hídricos y el seguimiento de la contaminación.",
+        "Sensitive to surface temperature. Used to map surface temperature, which is useful for applications such as forest fire monitoring, water resource management, and pollution monitoring.",
       code: "B10",
       color: "to-fuchsia-500",
     },
     {
-      nameBanda: "Coste 11 (Infrarrojo térmico)",
+      nameBanda: "Band 11 (Thermal infrared)",
       description:
-        "Sensible a la temperatura de la superficie. Se utiliza para mapear la temperatura de la superficie, lo que es útil para aplicaciones como el monitoreo de incendios forestales, la gestión de recursos hídricos y el seguimiento de la contaminación.",
+        "Sensitive to surface temperature. Used to map surface temperature, which is useful for applications such as forest fire monitoring, water resource management, and pollution monitoring..",
       code: "B11",
       color: "to-cyan-500",
     },

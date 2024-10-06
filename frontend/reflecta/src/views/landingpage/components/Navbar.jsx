@@ -5,7 +5,7 @@ export default function Navbar() {
         href='/map'
         className='btn btn-outline btn-primary text-lg font-normal'
       >
-        Despegar
+        Take off
       </a>
     </div>
   );
