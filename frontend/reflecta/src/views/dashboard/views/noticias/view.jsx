@@ -29,7 +29,7 @@ export default function Noticias() {
   return (
     <main>
       <Navbar />
-      <Title text='Landsat9 News' />
+      <Title text='Landsat 9 News' />
       <GridIntegrations>
         {listNews.length > 0 ? (
           listNews.map((item) => (
