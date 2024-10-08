@@ -15,6 +15,7 @@ export default function Hero() {
         "https://image.slidesdocs.com/responsive-images/background/tree-flowers-and-trees-leaves-branch-plants-branches-powerpoint-background_f9fc69ec94__960_540.jpg",
     },
     {
+      to: "/usos/watermanagement",
       title: "Water Resources Management",
       description:
         "With the power of Landsat 9, we can manage the planet's water resources. Tracking water availability, river quality, and flood prevention are just some of its applications.",
@@ -23,6 +24,7 @@ export default function Hero() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiBc3BdOsDVVwqfAj8qsq-DQ2BIQIpGespgQ&s",
     },
     {
+      to: "/usos/env-conservation",
       title: "Environmental Conservation",
       description:
         "Protecting our planet is easier when seen from space. Landsat 9 helps monitor natural areas and their changes, acting as a guardian of the Earth.",
@@ -31,6 +33,7 @@ export default function Hero() {
         "https://img.freepik.com/vector-gratis/fondo-plano-dia-tierra_23-2149318686.jpg",
     },
     {
+      to: "/usos/urban-planing",
       title: "Sustainable Urban Planning",
       description:
         "Smart cities for a sustainable future with Landsat 9. It helps urban planners visualize city growth and design more efficient infrastructures.",
@@ -39,6 +42,7 @@ export default function Hero() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeSplzt61BWXGQchzBe1TGAbw8mrleaD71sw&s",
     },
     {
+      to: "/usos/natural-disasters",
       title: "Natural Disaster Monitoring",
       description:
         "Be prepared for the unexpected with Landsat 9. From fire prevention to detecting earthquakes, it is a powerful tool to save lives and protect our environment.",
@@ -47,6 +51,7 @@ export default function Hero() {
         "https://media.istockphoto.com/id/1333043586/es/foto/tornado-en-paisaje-tormentoso-concepto-de-cambio-clim%C3%A1tico-y-desastre-natural.jpg?s=612x612&w=0&k=20&c=sHGLIIjUT5IwCxM5KfvEcZiUGq5vteucuUNg27bb-_o=",
     },
     {
+      to: "/usos/reforestation",
       title: "Reforestation and Ecosystem Restoration",
       description:
         "Every tree counts, and Landsat 9 counts them all. It facilitates the management of reforestation projects and recovery of degraded areas, ensuring the planet keeps breathing.",
@@ -55,6 +60,7 @@ export default function Hero() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdeBAI3kBVp9xpggU74U9pcYcase6P8aYolQ&s",
     },
     {
+      to: "/usos/researching",
       title: "Scientific Research and Earth Analysis",
       description:
         "Exploring the planet's secrets from space. Landsat 9 allows studying Earth's geology, analyzing soils, and discovering patterns invisible to the human eye.",
@@ -63,6 +69,7 @@ export default function Hero() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHi6kbBxfAK9lSDsXJXTj-DXhFQk9XQa0g9emA1o3bLO9jpxbD3QAR9nsXzWcJwAXR3c8&usqp=CAU",
     },
     {
+      to: "/usos/mining",
       title: "Mining and Resource Exploration",
       description:
         "Extracting knowledge for a more responsible use of resources. It helps identify extraction zones and monitor the impact of operations.",

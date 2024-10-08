@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -58,6 +62,7 @@ export default {
     require("daisyui"),
     require("tailwindcss-animate"),
     require("@tailwindcss/typography"),
+    addVariablesForColors,
   ],
 
   // daisyUI config (opcional)
@@ -80,3 +85,14 @@ export default {
     themeRoot: ":root", // Elemento que recibe las variables CSS del color del tema
   },
 };
+
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}

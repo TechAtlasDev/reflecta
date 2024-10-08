@@ -1,6 +1,8 @@
 import Navbar from "../dashboard/components/navbar";
 import Panel from "./components/panel";
 
+import Footer from "../dashboard/components/Footer";
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { isAuthorized } from "./logic";
@@ -43,6 +45,7 @@ export default function ProfilePage() {
       <section className='flex flex-col items-center'>
         <Panel data={datauser} />
       </section>
+      <Footer />
     </main>
   ) : (
     <h1>Loading...</h1>

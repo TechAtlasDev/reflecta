@@ -48,10 +48,20 @@ const ModalCarrousel = () => {
             <form method='dialog'>
               <div className='modal-action flex flex-row justify-between items-center'>
                 <div className='flex flex-row gap-2'>
-                  <a className='btn btn-sm btn-outline btn-secondary'>
+                  <a
+                    className='btn btn-sm btn-outline btn-secondary'
+                    onClick={() => {
+                      alert("still in development!");
+                    }}
+                  >
                     Download view
                   </a>
-                  <a className='btn btn-sm btn-outline btn-success'>
+                  <a
+                    className='btn btn-sm btn-outline btn-success'
+                    onClick={() => {
+                      alert("still in development!");
+                    }}
+                  >
                     Metadata
                   </a>
                 </div>

@@ -35,12 +35,23 @@ export default function Hero() {
 
       <GridIntegrations>
         <ItemIntegrations
+          to='/dashboard/models'
+          title='Predictive Models'
+          image='https://grupoinmotion.com/wp-content/uploads/2020/12/inteligencia-artificial-770x400.jpg'
+        >
+          Discover why <strong>Landsat 9</strong> is one of the most
+          revolutionary satellites of our time and how its technology can
+          transform our daily lives.
+        </ItemIntegrations>
+        <ItemIntegrations
           to='/dashboard/usos'
           size='md:col-span-5'
           title='Its uses'
           image='/ondas.jpeg'
         >
-          With the advanced technology of the <strong>Landsat 9</strong> satellite and its specialized cameras, it is now possible to observe phenomena invisible to the human eye, revealing{" "}
+          With the advanced technology of the <strong>Landsat 9</strong>{" "}
+          satellite and its specialized cameras, it is now possible to observe
+          phenomena invisible to the human eye, revealing{" "}
           <strong>fascinating mysteries</strong> hidden in our environment.
         </ItemIntegrations>
 
@@ -50,7 +61,11 @@ export default function Hero() {
           title='Recent news'
           image='https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274_1280.jpg'
         >
-          Dive into an <strong>inspiring gallery</strong> of images that capture the essence of <strong>Landsat 9</strong> in all its glory. Discover the{" "} <strong>magic of Earth observation</strong> and witness the{" "} <strong>transformative impact</strong> these images can have on our understanding of the planet.
+          Dive into an <strong>inspiring gallery</strong> of images that capture
+          the essence of <strong>Landsat 9</strong> in all its glory. Discover
+          the <strong>magic of Earth observation</strong> and witness the{" "}
+          <strong>transformative impact</strong> these images can have on our
+          understanding of the planet.
         </ItemIntegrations>
 
         <ItemIntegrations
@@ -59,7 +74,9 @@ export default function Hero() {
           title='Pre-Landsat 9 projects'
           image='https://www.laprensagrafica.com/__export/1696698829952/sites/prensagrafica/img/2023/10/07/64b05f3c80d5d.jpeg_1758632411.jpeg'
         >
-          Discover why <strong>Landsat 9</strong> is one of the most revolutionary satellites of our time and how its technology can transform our daily lives.
+          Discover why <strong>Landsat 9</strong> is one of the most
+          revolutionary satellites of our time and how its technology can
+          transform our daily lives.
         </ItemIntegrations>
 
         <ItemIntegrations
@@ -68,14 +85,9 @@ export default function Hero() {
           title='Landsat 9'
           image='https://www.gisandbeers.com/wp-content/uploads/2022/02/Bandas-Landsat-9.jpg'
         >
-          Discover why <strong>Landsat 9</strong> is one of the most revolutionary satellites of our time and how its technology can transform our daily lives.
-        </ItemIntegrations>
-        <ItemIntegrations
-          to='/dashboard/models'
-          title='Predictive Models'
-          image='https://www.gisandbeers.com/wp-content/uploads/2022/02/Bandas-Landsat-9.jpg'
-        >
-          Discover why <strong>Landsat 9</strong> is one of the most revolutionary satellites of our time and how its technology can transform our daily lives.
+          Discover why <strong>Landsat 9</strong> is one of the most
+          revolutionary satellites of our time and how its technology can
+          transform our daily lives.
         </ItemIntegrations>
       </GridIntegrations>
     </section>

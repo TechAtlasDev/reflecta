@@ -19,7 +19,9 @@ export default function Interfaz() {
         {/* Sección principal con contenido interactivo */}
         <section className='relative pointer-events-auto bg-slate-900 flex flex-col items-start gap-3 px-3 py-5 rounded-xl z-10'>
           <span className='absolute text-[blue] loading loading-ring loading-lg -right-4 -top-4'></span>
-          <h1 className='font-bold text-2xl  font-mono'>Reflecta</h1>
+          <a href='/' className='font-bold text-2xl btn btn-sm font-mono'>
+            Reflecta
+          </a>
           <hr className='border w-1/2' />
           <div className='flex flex-col gap-2'>
             <article className='flex flex-row items-center justify-between gap-2'>
@@ -43,10 +45,20 @@ export default function Interfaz() {
 
       <section className='relative flex flex-row justify-between items-end gap-3 px-3 py-5 w-full z-10'>
         <div className='flex flex-col gap-2'>
-          <button className='font-extrabold text-xl btn pointer-events-auto'>
+          <button
+            className='font-extrabold text-xl btn pointer-events-auto'
+            onClick={() => {
+              alert("still in development!");
+            }}
+          >
             +
           </button>
-          <button className='font-extrabold text-xl btn pointer-events-auto'>
+          <button
+            className='font-extrabold text-xl btn pointer-events-auto'
+            onClick={() => {
+              alert("still in development!");
+            }}
+          >
             -
           </button>
         </div>
