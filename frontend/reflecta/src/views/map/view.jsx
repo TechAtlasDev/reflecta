@@ -105,7 +105,7 @@ function Map() {
         {/* Mostrar marcador de Landsat */}
         {landsatCoordinates && (
           <Marker
-            alt='Landsat9'
+            alt='Landsat 9'
             icon={landsatIcon}
             position={[
               landsatCoordinates.latitude,
@@ -113,8 +113,8 @@ function Map() {
             ]}
           >
             <Popup>
-              <b>¡El Landsat 9 se encuentra aquí!</b>
-              <br /> Coordenadas: {landsatCoordinates.latitude},{" "}
+              <b>Landsat 9 is here!</b>
+              <br />Coordinates: {landsatCoordinates.latitude},{" "}
               {landsatCoordinates.longitude}
             </Popup>
           </Marker>
@@ -127,13 +127,13 @@ function Map() {
             icon={markerIcon}
           >
             <Popup>
-              Tu ubicación: {userCoordinates.latitude},{" "}
+              You're here: {userCoordinates.latitude},{" "}
               {userCoordinates.longitude}
               <button
                 className='btn btn-xs btn-outline btn-success'
-                onClick={() => alert("Notificar cuando Landsat pase aquí")}
+                onClick={() => alert("Notify when Landsat is here")}
               >
-                Notificar cuando Landsat pase aquí
+                Notify when Landsat is here
               </button>
             </Popup>
           </Marker>
@@ -154,15 +154,15 @@ function Map() {
               <br />
               <button
                 className='btn btn-xs btn-outline btn-success'
-                onClick={() => alert("Notificar cuando Landsat pase aquí")}
+                onClick={() => alert("Notify when Landsat is here")}
               >
-                Notificar cuando Landsat pase aquí
+                Notify when Landsat is here
               </button>
               <button
                 className='btn btn-xs btn-outline btn-primary'
-                onClick={() => alert("Mostrar metadatos")}
+                onClick={() => alert("Show metadata")}
               >
-                Mostrar metadatos
+                Show metadata
               </button>
             </Popup>
           </Marker>

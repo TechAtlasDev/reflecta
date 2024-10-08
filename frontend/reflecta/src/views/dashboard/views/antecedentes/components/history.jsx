@@ -8,11 +8,7 @@ export function History() {
       content: (
         <div>
           <p>
-            🚀 <b className='font-bold'>Lanzado el 23 de julio de 1972</b>,
-            Landsat 1 fue el primer satélite civil en observar la Tierra. Con
-            una cámara multiespectral, permitió estudiar geología, hidrología y
-            cartografía, contribuyendo al monitoreo de recursos naturales y al
-            análisis ambiental global.
+            🚀 <b className='font-bold'>Launched on July 23, 1972</b>, Landsat 1 was the first civilian satellite to observe the Earth. With a multispectral camera, it was possible to study geology, hydrology, and cartography, contributing to the monitoring of natural resources and global environmental analysis.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
@@ -43,10 +39,7 @@ export function History() {
       content: (
         <div>
           <p>
-            📅 <b className='font-bold'>Lanzado el 22 de enero de 1975</b>,
-            Landsat 2 mejoró la captura de imágenes multiespectrales, ayudando a
-            monitorear ecosistemas y cultivos. También fue crucial en la gestión
-            de desastres naturales como inundaciones.
+            📅 <b className='font-bold'>Launched on January 22, 1975</b>, Landsat 2 improved multispectral image capture, helping to monitor ecosystems and crops. It was also crucial in managing natural disasters such as floods.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
@@ -77,11 +70,7 @@ export function History() {
       content: (
         <div>
           <p>
-            🛰️ <b className='font-bold'>Lanzado el 5 de marzo de 1978</b>,
-            Landsat 3 mejoró la sensibilidad de los sensores para obtener
-            imágenes más precisas, pero su misión fue limitada por problemas
-            técnicos. Aun así, fue valioso para estudios de cambio climático y
-            urbanización.
+            🛰️ <b className='font-bold'>Launched on March 5, 1978</b>, the Landsat 3 improved sensor sensitivity for more accurate imaging, but its mission was limited by technical problems. Still, it was valuable for studies of climate change and urbanization.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
@@ -112,11 +101,7 @@ export function History() {
       content: (
         <div>
           <p>
-            🛰️ <b className='font-bold'>Lanzado el 16 de julio de 1982</b>,
-            Landsat 4 introdujo el Thematic Mapper (TM), aumentando la
-            resolución y el número de bandas espectrales. Esto mejoró el
-            análisis de ecosistemas y el monitoreo de cambios ambientales a
-            largo plazo.
+            🛰️ <b className='font-bold'>Launched on July 16, 1982</b>, Landsat 4 introduced the Thematic Mapper (TM), which increased resolution and the number of spectral bands, thereby improving ecosystem analysis and monitoring of long-term environmental changes.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
@@ -147,10 +132,7 @@ export function History() {
       content: (
         <div>
           <p>
-            📅 <b className='font-bold'>Lanzado el 1 de marzo de 1984</b>,
-            Landsat 5 funcionó durante más de 29 años, capturando millones de
-            imágenes que documentaron la expansión urbana, la deforestación y
-            los efectos del cambio climático.
+            📅 <b className='font-bold'>Launched on March 1, 1984</b>, Landsat 5 operated for more than 29 years, capturing millions of images that documented urban expansion, deforestation and the effects of climate change.
           </p>
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
             <img
@@ -180,10 +162,7 @@ export function History() {
       content: (
         <div>
           <p>
-            📅 <b className='font-bold'>Lanzado el 5 de octubre de 1993</b>,
-            Landsat 6 falló en alcanzar su órbita, pero estaba destinado a
-            continuar la misión de sus predecesores. A pesar de la pérdida, los
-            datos de los anteriores Landsat siguieron siendo útiles.
+            📅 <b className='font-bold'>Landsat 6, launched on October 5, 1993</b>, failed to reach orbit, but was planned to continue the mission of its predecessors. Despite the loss, data from earlier Landsats remained useful.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
@@ -214,10 +193,7 @@ export function History() {
       content: (
         <div>
           <p>
-            🚀 <b className='font-bold'>Lanzado el 15 de abril de 1999</b>,
-            Landsat 7 introdujo el Enhanced Thematic Mapper Plus (ETM+). Aunque
-            sufrió un fallo en 2003, continuó siendo útil en estudios de
-            deforestación y glaciología.
+            🚀 <b className='font-bold'>Launched on April 15, 1999</b>, Landsat 7 introduced the Enhanced Thematic Mapper Plus (ETM+). Although it failed in 2003, it remained useful in deforestation and glaciology studies.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
@@ -248,10 +224,7 @@ export function History() {
       content: (
         <div>
           <p>
-            🚀 <b className='font-bold'>Lanzado el 11 de febrero de 2013</b>,
-            Landsat 8 trajo el Operational Land Imager (OLI) y el Thermal
-            Infrared Sensor (TIRS), mejorando la resolución de las imágenes y
-            permitiendo estudios detallados de la salud de los ecosistemas.
+            🚀 <b className='font-bold'>Launched on February 11, 2013</b>, Landsat 8 incorporated the Operational Land Imaging (OLI) sensor and Thermal Infrared Sensor (TIRS), improving image resolution and enabling detailed studies of ecosystem health.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
@@ -282,10 +255,7 @@ export function History() {
       content: (
         <div>
           <p>
-            📅 <b className='font-bold'>Lanzado el 27 de septiembre de 2021</b>,
-            Landsat 9 continúa la misión de observación de la Tierra,
-            proporcionando datos esenciales para el monitoreo del cambio
-            climático y la conservación de recursos.
+            📅 <b className='font-bold'>Launched on September 27, 2021</b>, Landsat 9 continues the Earth-observing mission, providing essential data for monitoring climate change and conserving resources.
           </p>
 
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 my-3'>
@@ -317,8 +287,8 @@ export function History() {
     <div className='w-full overflow-x-hidden'>
       <Timeline
         data={data}
-        title='Antecedentes de los Landsat'
-        description='Adentrémonos en el increíble mundo de los Landsat y cómo su desarrollo impactó al mundo entero hasta nuestros días!.'
+        title='Background of Landsat'
+        description="Let's dive into the amazing world of Landsat and how its development impacted the entire world to this day!"
       />
     </div>
   );

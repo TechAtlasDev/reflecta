@@ -18,7 +18,7 @@ const MarkdownPost = () => {
         setMeta(attributes);
         setContent(body);
       } else {
-        setContent("Error: No se pudo cargar el post.");
+        setContent("Error: This post can't be loaded.");
       }
     };
 

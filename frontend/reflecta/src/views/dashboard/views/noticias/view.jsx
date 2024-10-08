@@ -15,7 +15,7 @@ export default function Noticias() {
       if (Array.isArray(response)) {
         setListNews(response);
       } else {
-        console.error("Error: La respuesta no es un array");
+        console.error("Error: The response is not an array");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -29,7 +29,7 @@ export default function Noticias() {
   return (
     <main>
       <Navbar />
-      <Title text='Noticias del Landsat9' />
+      <Title text='Landsat 9 News' />
       <GridIntegrations>
         {listNews.length > 0 ? (
           listNews.map((item) => (
@@ -44,7 +44,7 @@ export default function Noticias() {
             </ItemIntegrations>
           ))
         ) : (
-          <p>No hay noticias disponibles</p>
+          <p>No news available</p>
         )}
       </GridIntegrations>
     </main>

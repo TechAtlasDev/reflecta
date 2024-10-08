@@ -1,4 +1,4 @@
-// Obteniendo las coordenadas del Landsat9
+// Obteniendo las coordenadas del Landsat 9
 import { urlAPI } from "@/components/variables";
 
 export default async function GetCordinates() {

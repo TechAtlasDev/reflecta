@@ -14,19 +14,19 @@ const DateRangePicker = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Rango de fechas seleccionado: ${startDate} a ${endDate}`);
+    alert(`Date range selected: ${startDate} a ${endDate}`);
   };
 
   return (
     <div className='my-5'>
       <h2 className='text-lg font-bold mb-4'>
-        📅 Selecciona un Rango de Fechas
+        📅 Select date range
       </h2>
       <form onSubmit={handleSubmit} className='space-y-4'>
         <div className='flex flex-row justify-between'>
           <div>
             <label className='label font-medium' htmlFor='start-date'>
-              Fecha de Inicio
+              Start
             </label>
             <input
               type='date'
@@ -38,7 +38,7 @@ const DateRangePicker = () => {
           </div>
           <div>
             <label className='label font-medium' htmlFor='end-date'>
-              Fecha de Fin
+              End
             </label>
             <input
               type='date'
