@@ -34,6 +34,7 @@ export default function Noticias() {
         {listNews.length > 0 ? (
           listNews.map((item) => (
             <ItemIntegrations
+              size='md:col-span-4'
               key={item.title}
               title={item.title}
               image={item.image}

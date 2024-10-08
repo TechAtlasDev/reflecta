@@ -10,6 +10,7 @@ import { useState, useEffect, useRef } from "react";
 import GetCordinates from "./functions/locationLandsat";
 import { landsatIcon, markerIcon, pinIcon } from "./components/icons";
 import Interfaz from "./interfaz";
+import { fetchCoordinates } from "./functions/locationLandsat";
 
 export function HandlerMap({ setClickedPosition }) {
   const markerRef = useRef(null); // Referencia para el marcador
@@ -33,6 +34,8 @@ function Map() {
   const [landsatCoordinates, setLandsatCoordinates] = useState(null);
   const [userCoordinates, setUserCoordinates] = useState(null);
   const [clickedPosition, setClickedPosition] = useState(null);
+  const [aprox, setAproxPosition] = useState(0);
+
   const markerRef = useRef(null); // Nueva referencia para el marcador del clic
 
   // Función para obtener las coordenadas del usuario
@@ -49,6 +52,15 @@ function Map() {
       );
     } else {
       console.error("Geolocation is not supported by this browser.");
+    }
+  }
+
+  async function Aprox() {
+    try {
+      const response = await fetchCoordinates({ lat: 1, lon: 1 });
+      setAproxPosition(response);
+    } catch (error) {
+      console.error("Error fetching coordinates:", error);
     }
   }
 
@@ -70,6 +82,7 @@ function Map() {
     // Si se establece una posición al hacer clic, abrir el popup automáticamente
     if (markerRef.current) {
       markerRef.current.openPopup();
+      Aprox();
     }
   }, [clickedPosition]); // Solo cuando cambie `clickedPosition`
 
@@ -134,6 +147,11 @@ function Map() {
             ref={markerRef} // Referencia al marcador del clic
           >
             <Popup>
+              <strong>Ubicación seleccionada:</strong> {clickedPosition.lat},{" "}
+              {clickedPosition.lng}
+              <br />
+              {aprox}
+              <br />
               <button
                 className='btn btn-xs btn-outline btn-success'
                 onClick={() => alert("Notificar cuando Landsat pase aquí")}
