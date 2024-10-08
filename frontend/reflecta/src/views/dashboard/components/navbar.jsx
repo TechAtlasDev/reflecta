@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import AIButton from "@/components/AIbutton";
 
 export default function Navbar() {
   const [username, setUsername] = useState("Profile");
@@ -39,14 +40,7 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href='/dashboard' className='btn'>
-              Landsat 9
-            </a>
-          </li>
-          <li>
-            <a href='/dashboard/models' className='btn btn-outline btn-primary'>
-              ModelsAI
-            </a>
+            <AIButton text='ModelsAI' to='/dashboard/models' />
           </li>
           <li>
             <a href='/profile' className='btn btn-outline btn-secondary'>
